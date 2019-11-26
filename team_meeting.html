@@ -24,22 +24,27 @@
     <body>
         <div class="reveal">
             <div class="slides">
-                <section class="cover" data-background="figures/background_blurred.jpg" data-state="no-title-footer no-progressbar has-dark-background">
+                <section class="cover" data-background="fig/microphone_back.jpg" data-state="no-title-footer no-progressbar has-dark-background">
 					<h1 style="color:white"> </h1>
                     <h2 id='coverh2'> Localization guided speech separation  </h2>
                     <!-- <h3><a href="https://anr-kamoulox.github.io">anr-kamoulox.github.io</a></h3> -->
-                    <p id='coverauthors'>
-                        Sunit Sivasankaran<br />
+                    <p id='coverauthors'> 
+                        Sunit Sivasankaran <br/>
                         sunit.sivasankaran@inria.fr
-                    </p>
-                    <p>
-                        November 28th, 2019
                     </p>
                     <img src="figures/logos/inria.svg" id="inria" class="logo" alt="">
                     <!-- 
                     <img src="figures/logos/lorraine.png" id="lorraine" class="partners" alt="">
                     <img src="figures/logos/telecom.svg" id="telecom" class="partners" alt="">
-                    <img src="figures/logos/zenith.jpg" id="telecom" class="partners" alt=""> -->
+                    <img src="figures/logos/zenith.jpg" id="telecom" class="partners" alt=""> 
+                    </br>
+                    </br>
+                    </br>
+                    </br>
+                    </br>
+                    </br>
+                    </br>
+                    -->
                     <div class='multiCol'>
                         <div class='col'>
                             <p id='coversupervisors', style="font-size:21px;">
@@ -58,10 +63,6 @@
                         </div>
                         -->
                     </div>
-                    <aside class="notes">
-                        <ul><li>Remercier les gens d'être présents.</li>
-                            <li>anr-kamoulox: débruitage d'archive du CNRS d'ethnomusicologue d'enregistrement fin XIXème jusqu'à aujourd'hui.</li></ul>
-                    </aside>
                 </section>
 
                 <section>
@@ -73,7 +74,9 @@
                         </div>
                         <div class='col'>
                             <img src="fig/intro/ds_mix_spec.png"   alt="" width="100%"></br>
+                            <div class="affirmation" style="margin-top:-0.2em; margin-bottom:0.5em;"> Captured Mixture </div>
                             <img src="fig/intro/ds_true_mask.png"  alt="" width="100%"></br>
+                            <div class="affirmation" style="margin-top:-0.2em; margin-bottom:0.5em;"> Required Signal </div>
                         </div>
                     </div>
                 </section>
@@ -81,6 +84,13 @@
                 <section>
                     <h1> Speaker localization given the spoken text </h1>
                     <img src="fig/loc/estimation_flow.svg"   alt="" width="100%"></br>
+                    <div class='multiCol'>
+                        <div class='col'> </div>
+                        <div class='col'>
+                            <img src="fig/loc/phoneme_spectra.svg"   alt="" width="140%"></br>
+                        </div>
+                        <div class='col'> </div>
+                    </div>
                 </section>
 
                 <section>
@@ -91,36 +101,24 @@
                 <section>
                     <h1>Source separation given localization information, $\theta$</h1>
                     <img src="fig/se/enh_pipeline.svg" alt="" height="80%"></br>  </br></br>
-                    <img src="fig/se/loop_est.png" alt="" height="80%"></br>
+                    <img src="fig/se/loop.svg" alt="" height="80%"></br>
                 </section>
                 <section>
                     <h1>Results</h1>
                     <h2>Speaker Localization</h2>
-                    <canvas  class="stretch" data-chart="bar">
-                        Gross Error, 50.9, 51.4, 2.7, 6.8, 8.6, 14.3, 13.9, 14.9
-                        Interference Closeness (%), 29.2, 30, 1.4, 1.7, 1.8, 2.4, 2.3, 2.2
-                        MAE (degrees), 27.5, 24.9, 1, 1.8, 2.2, 3.3, 3.2, 3.3
-                        <!-- 
-                        { 
-                        "data" : {
-                        "labels" : ["GCC-PHAT", "CSIPD-NoMask", "Clean", "Early", "Reverb", "Clean(est)", "Early(est)", "Reverb(est)"],
-                        "datasets" : [{ "backgroundColor": "black"}, { "backgroundColor": "green" },{ "backgroundColor": "red" } ]
-                        }
-                        }
-                        -->
-                    </canvas>
+                    <img src="fig/results/loc_sim_results.svg" alt="" width="200%"></br>
                 </section>
 
 
                 <section >
                     <h1>Results</h1>
                     <h2>Speech Separation (in % WER ) </h2>
-                    <div class="affirmation" style="margin-top:-0.2em; margin-bottom:0.5em;"> Baseline </div>
+                    <div class="affirmation" style="margin-top:-0.2em; margin-bottom:0.5em;"> Baseline (with reverberations) </div>
                     <table>
                         <tr>
-                            <th>Single <br>Speaker<br></th>
-                            <th>Single <br>Speaker + noise<br></th>
-                            <th>2 speakers +<br>noise<br></th>
+                            <td>Single <br>Speaker<br></td>
+                            <td>Single <br>Speaker + noise<br></td>
+                            <td>2 speakers +<br>noise<br></td>
                         </tr>
                         <tr>
                             <td>12.5</td>
@@ -132,7 +130,7 @@
                     <table>
                         <tr>
                             <td>True DOA<br>(Proposed)<br></td>
-                            <td>Est DOA<br>(witd GCC-PHAT)</td>
+                            <td>Est DOA<br>(with GCC-PHAT)</td>
                             <td>Deflation<br>(Proposed)</td>
                             <td>Conv-Tasnet</td>
                         </tr>
