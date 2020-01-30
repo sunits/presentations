@@ -1,0 +1,46 @@
+\documentclass[border=0mm]{standalone}
+\usepackage{graphicx}% http://ctan.org/pkg/graphicx
+%{\fontsize{2.5}{4}\selectfont Supertiny}
+\usepackage{tikz,pgfplots}
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{patterns}
+\usetikzlibrary{decorations.pathmorphing}
+\definecolor{bblack}{HTML}{AAAAAA}
+\definecolor{rred}{HTML}{C0504D}
+\definecolor{bblue}{HTML}{000000}
+\definecolor{bgrey}{HTML}{888888}
+\begin{document}
+
+\begin{tikzpicture}[scale=0.58]
+   \begin{axis}[
+       width  = 0.85*\textwidth,
+       height = 7cm,
+       enlarge x limits=0.09, % This is the spacing at the beginning of the curve
+       major x tick style = transparent,                    
+       ybar=0.45cm, % Bar spacing within one bunch
+       bar width=9pt,
+       x = 2.4cm, % SPacing between bunches
+       ymajorgrids = true,
+       symbolic x coords={GCC-PHAT, CSIPD No Mask,  Clean Mask ,  Early Mask , Reverb Mask ,  Est Clean Mask, Est Early Mask,  Est Reverb Mask},       
+       xtick = data, xticklabel style={text width=1.3cm,align=center},nodes near coords,
+       scaled y ticks = false,
+       legend style={at={(1,1)},anchor=north east}
+   ]
+       \addplot[style={bblue,fill=bblue,mark=none}]
+           coordinates {(GCC-PHAT, 50.9) (CSIPD No Mask, 51.4) (Clean  Mask , 2.7)(Early  Mask , 6.8) (Reverb Mask , 8.6) (Est Clean Mask,14.3) (Est Early Mask, 13.9)(Est Reverb Mask,14.9)};
+           
+           \addplot[style={bgrey,fill=bgrey,mark=none},postaction={pattern=north east lines}]          
+           coordinates {(GCC-PHAT, 29.2) (CSIPD No Mask, 30.0) (Clean  Mask , 1.4)(Early  Mask , 1.7) (Reverb Mask , 1.8)(Est Clean Mask, 2.4) (Est Early Mask, 2.3)(Est Reverb Mask, 2.2)};
+           	
+           \addplot[style={bblack,fill=bblack,mark=none}]
+           coordinates {(GCC-PHAT, 27.5) (CSIPD No Mask, 24.9) (Clean  Mask , 1.0)(Early  Mask , 1.8) (Reverb Mask , 2.2)(Est Clean Mask, 3.3) (Est Early Mask, 3.2)(Est Reverb Mask,3.3)};
+                     \legend{Gross Error($\%$), Interference closeness $\%$,  MAE ($\circ$)}
+     \draw [line width=0.5mm,   orange] (50,10) -- (50,525) ;
+     \draw [line width=0.5mm,   orange] (150,10) -- (150,525) ;
+    \draw [line width=0.5mm,   orange] (450,10) -- (450,525) ;
+    
+    \node[draw] at (300,300) {\begin{tabular}{c} Using ground truth  \\   mask \\ \end{tabular}};    
+    \node[draw] at (600,300) {\begin{tabular}{c} Using estimated  \\   mask \\ \end{tabular}};    
+   \end{axis}
+\end{tikzpicture}
+\end{document}

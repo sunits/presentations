@@ -1,0 +1,129 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=0.8, maximum-scale=1.0, user-scalable=no">
+
+        <title>Speech Separation</title>
+
+        <link rel="stylesheet" href="css/reveal.css">
+        <link rel="stylesheet" href="css/theme/lirmm.css">
+        <link rel="stylesheet" href="css/extra.css">
+
+        <!-- Theme used for syntax highlighting of code -->
+        <link rel="stylesheet" href="lib/css/github.css">
+        <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+        <!-- Printing and PDF exports -->
+        <script>
+            var link = document.createElement( 'link' );
+            link.rel = 'stylesheet';
+            link.type = 'text/css';
+            link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+            document.getElementsByTagName( 'head' )[0].appendChild( link );
+        </script>
+    </head>
+    <body>
+        <div class="reveal">
+            <div class="slides">
+                <section>
+                    <h1>Data simulation for localization</h1>
+                    <center>
+                    <img src="fig/loc/rir_simul.svg" width="60%" alt=""/>
+                    </center>
+                </section>
+                <section>
+                    <h1>Conv-Tasnet</h1>
+                    <img src="fig/se/time_domain_sep_draw.svg" width="100%" alt=""/>
+
+                </section>
+
+                <section>
+                    <h1>Result on real data - Single speaker </h1>
+                    <table>
+                        <tr>
+                            <th>Distance* </th>
+                            <th> Sample count</th>
+                            <th> GCC-PHAT </th>
+                            <th>CSIPD  no  mask</th>
+                            <th>CSIPD + Est. clean mask</th>
+                        </tr>
+                        <tr>
+                            <td>2.16m</td>
+                            <td>113</td>
+                            <td>08.77 %</td>
+                            <td>08.05 %</td>
+                            <td><b>05.35</b> %</td>
+                        </tr>
+                        <tr>
+                            <td>3.59m</td>
+                            <td>90</td>
+                            <td>23.30 %</td>
+                            <td>18.88 %</td>
+                            <td><b> 14.43</b> %</td>
+                        </tr>
+                        <tr>
+                            <td>3.94m</td>
+                            <td>87</td>
+                            <td>47.19 %</td>
+                            <td>49.43 %</td>
+                            <td><b>35.64</b> %</td>
+                        </tr>
+                        <tr>
+                            <td>4.16m</td>
+                            <td>114</td>
+                            <td>23.65 %</td>
+                            <td>28.00 %</td>
+                            <td><b> 12.26</b> %</td>
+                        </tr>
+                        <tr>
+                            <td>4.65m</td>
+                            <td>51</td>
+                            <td>53.80 %</td>
+                            <td><b>22.04</b> %</td>
+                            <td>25.80 %</td>
+                        </tr>
+                        <tr></tr>
+                    </table>
+                    * Distance between the speaker and the microphone array
+
+                    <br>
+                    </br>
+                    Numbers are the  gross error rates
+                </section>
+            </div> 
+            <div class='footer'>
+                <img src="figures/logos/inria.svg" alt="Logo" class="logo" id="bottom"/>
+                <div id="middlebox"><h1 style="color:white">Localization guided speech separation</h1></div>
+            </div>
+        </div>
+        <script src="lib/js/head.min.js"></script>
+        <script src="js/reveal.js"></script>
+        <script type="text/javascript" src="js/draw.viewer.min.js"></script>
+
+        <script>
+            // More info about config & dependencies:
+            // - https://github.com/hakimel/reveal.js#configuration
+            // - https://github.com/hakimel/reveal.js#dependencies
+        Reveal.initialize({
+            controls: false,
+            progress: true,
+            history: true,
+            center: false,
+            slideNumber: true,
+            minScale: 0.1,
+            maxScale: 5,
+            transition: 'none', //
+
+            dependencies: [
+            { src: 'plugin/chart/Chart.min.js' },               
+            { src: 'plugin/chart/csv2chart.js' },
+            { src: 'plugin/markdown/marked.js' },
+            { src: 'plugin/markdown/markdown.js' },
+            { src: 'plugin/notes/notes.js', async: true },
+            { src: 'plugin/math-katex/math-katex.js', async: true },
+            { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+            ]
+        });
+        </script>
+    </body>
+</html>
