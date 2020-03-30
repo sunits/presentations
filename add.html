@@ -31,11 +31,6 @@
                     <img src="fig/loc/rir_simul.svg" width="60%" alt=""/>
                     </center>
                 </section>
-                <section>
-                    <h1>Conv-Tasnet</h1>
-                    <img src="fig/se/time_domain_sep_draw.svg" width="100%" alt=""/>
-
-                </section>
 
                 <section>
                     <h1>Result on real data - Single speaker </h1>
@@ -89,6 +84,68 @@
                     <br>
                     </br>
                     Numbers are the  gross error rates
+                </section>
+                <section>
+                    <h1>Demo</h1>
+                    <h2>Simulated Data </h2>
+                    <hr>
+                    <h3>Male Male speech separation</h3>
+                        Mixture
+                        <!-- <source src="http://members.loria.fr/SunitS/wp-content/blogs.dir/121/files/sites/121/2020/01/447o030y_1.9399_052a050t_-1.9399.wav"                             type="audio/wav"> -->
+                    <audio controls style="width: 50px;">
+                        <source src="audio/male_male/447o030y_1.9399_052a050t_-1.9399.wav"                             type="audio/wav">
+                    </audio> 
+                        S1
+                    <audio controls style="width: 50px;">
+                        <source src="audio/male_male/true_doa_s1_447o030y_1.9399_052a050t_-1.9399.wav" type="audio/wav"> </audio>
+                        S2
+                    <audio controls style="width: 50px;">
+                        <source src="audio/male_male/true_doa_s2_447o030y_1.9399_052a050t_-1.9399.wav" type="audio/wav"> </audio>
+                        Conv-TasNet: S1
+                    <audio controls style="width: 50px;">
+                        <source src="audio/tasnet/447o030y_1.9399_052a050t_-1.9399/s1_est.v10.wav" type="audio/wav"> </audio>
+                        S2
+                    <audio controls style="width: 50px;">
+                        <source src="audio/tasnet/447o030y_1.9399_052a050t_-1.9399/s2_est.v10.wav" type="audio/wav"> </audio>
+                        <br></br>
+
+                    <h3>Female Female speech separation</h3>
+                        Mixture
+                    <audio controls style="width: 50px;">
+                        <source src="audio/female_female/050a050l_1.2369_445o0305_-1.2369.wav" type="audio/wav">
+                    </audio> 
+                    S1
+                    <audio controls style="width: 50px;">
+                        <source src="audio/female_female/loop_s1_050a050l_1.2369_445o0305_-1.2369.wav" type="audio/wav">
+                    </audio> 
+                    S2
+                    <audio controls style="width: 50px;">
+                        <source src="audio/female_female/loop_s2_050a050l_1.2369_445o0305_-1.2369.wav" type="audio/wav">
+                    </audio> 
+                        Conv-TasNet: S1
+                    <audio controls style="width: 50px;">
+                        <source src="audio/tasnet/050a050l_1.2369_445o0305_-1.2369/s1_est.v10.wav" type="audio/wav"> </audio>
+                        S2
+                    <audio controls style="width: 50px;">
+                        <source src="audio/tasnet/050a050l_1.2369_445o0305_-1.2369/s2_est.v10.wav" type="audio/wav"> </audio>
+                    <h2>Real Data </h2>
+                    <hr>
+                    Mixture
+                    <audio controls style="width: 50px;">
+                        <source src="audio/real_data/2763.5.v.orig.wav" type="audio/wav">
+                    </audio> 
+                    Target
+                    <audio controls style="width: 50px;">
+                        <source src="audio/real_data/2763.5.v.r1_mwf.wav" type="audio/wav">
+                    </audio> 
+                    <br></br>
+                    <h4>
+                     Different microphone array geometry compared to simulated data
+                    </h4>
+                </section>
+
+                <section>
+                    <h1>Conv-Tasnet settings</h1>
                 </section>
             </div> 
             <div class='footer'>

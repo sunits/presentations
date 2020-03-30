@@ -188,22 +188,22 @@
 
                 <section>
                     <h1>Related Work</h1>
-                    <h2>Spatial Audio</h2>
+                    <h2>Multichannel Signals</h2>
                     <hr>
                     <h5>Speaker Localization</h5>
                     <div class="references" style="float:left;">
                     <ul style="font-size:20px;">
                         <li>
-                        Sunit Sivasankaran, et al.  "Keyword-based speaker localization: Localizing a target speaker in a multi-speaker environment", Interspeech 2018
+                        Sivasankaran. S, Vincent. E, Fohr, D., (2018) "Keyword-based speaker localization: Localizing a target speaker in a multi-speaker environment", Interspeech 
                         </li>
                     </ul>
                     </div>
                     <h6>Multichannel speech separation</h6>
                     <div class="references" style="float:left; ">
                     <ul style="font-size:20px;">
-                        <li> Sunit Sivasankaran, et. al. "SLOGD: Speaker Location Guided Deflation Approach to Speech Separation", ICASSP 2020  </li>
+                        <li> Sivasankaran. S, Vincent. E, Fohr, D., (2020) "SLOGD: Speaker Location Guided Deflation Approach to Speech Separation", ICASSP </li>
                         <li>
-                        Sunit Sivasankaran, et. al.  "Analyzing the impact of speaker localization errors on speech separation for automatic speech recognition",  	arXiv:1910.11114
+                        Sivasankaran. S, Vincent. E, Fohr, D.,  "Analyzing the impact of speaker localization errors on speech separation for automatic speech recognition",  	arXiv:1910.11114
                         </li>
                     </ul>
                     </div>
@@ -211,10 +211,10 @@
                     <hr>
                     <div class="references" style="float:left; ">
                         <ul style="font-size:20px;">
-                            <li>        Sunit Sivasankaran, et. al. "Robust ASR using neural network based speech enhancement and feature simulation", ASRU 2015  </li>
-                            <li>       Sunit Sivasankaran, et. al. "Discriminative importance weighting of augmented training data for acoustic model", ICASSP 2017 </li>
-                            <li>      Sunit Sivasankaran, et. al.  "A combined evaluation of established and new approaches for speech recognition in varied reverberation conditions", Computer Speech & Language 2017</li>
-                            <li>     Sunit Sivasankaran, et. al. "Phone Merging for code-switched Speech Recognition", linguistic code-switching workshop  in ACL 2018  </li>
+                            <li>        Sivasankaran. S, et. al., (2015) "Robust ASR using neural network based speech enhancement and feature simulation", ASRU </li>
+                            <li>       Sivasankaran. S, et. al. (2017), "Discriminative importance weighting of augmented training data for acoustic model", ICASSP </li>
+                            <li>      Sivasankaran. S, et. al., (2017)  "A combined evaluation of established and new approaches for speech recognition in varied reverberation conditions", Computer Speech & Language </li>
+                            <li>     Sivasankaran. S, et. al. (2018) "Phone Merging for code-switched Speech Recognition", linguistic code-switching workshop  in ACL </li>
                         </ul>
                     </div>
                     <h2> Sound Classification </h2>
@@ -222,7 +222,7 @@
                     <div class="references" style="float:left; ">
                         <ul style="font-size:20px;">
                             <li>
-                                Sunit Sivasankaran and K. M. M. Prabhu, "Robust features for environmental sound classification", CONECCT 2013 
+                                Sunit Sivasankaran and K. M. M. Prabhu, (2013) "Robust features for environmental sound classification", CONECCT 
                             </li>
                         </ul>
                     </div>
@@ -233,13 +233,13 @@
                 <section>
                     <h1>Today's Talk</h1>
                     <div class="affirmation" style="margin-top:-0.2em; margin-bottom:0.5em;"> 
-                    <h2>Spatial Audio</h2>
+                    <h2>Multichannel Signals</h2>
                     <hr>
                     <h5>Speaker Localization</h5>
                     <div class="references" style="float:left;">
                         <ul style="font-size:20px;">
                             <li>
-                                Sunit Sivasankaran, et al.  "Keyword-based speaker localization: Localizing a target speaker in a multi-speaker environment", Interspeech 2018
+                        Sivasankaran. S, Vincent. E, Fohr, D., (2018) "Keyword-based speaker localization: Localizing a target speaker in a multi-speaker environment", Interspeech 
                             </li>
                         </ul>
                     </div>
@@ -247,10 +247,10 @@
                     <h6>Multichannel speech separation</h6>
                     <div class="references" style="float:left; ">
                         <ul style="font-size:20px;">
-                            <li> Sunit Sivasankaran, et. al. "SLOGD: Speaker Location Guided Deflation Approach to Speech Separation", ICASSP 2020 </li>
-                            <li>
-                                Sunit Sivasankaran, et. al.  "Analyzing the impact of speaker localization errors on speech separation for automatic speech recognition",  	arXiv:1910.11114
-                            </li>
+                        <li> Sivasankaran. S, Vincent. E, Fohr, D., (2020) "SLOGD: Speaker Location Guided Deflation Approach to Speech Separation", ICASSP </li>
+                        <li>
+                        Sivasankaran. S, Vincent. E, Fohr, D.,  "Analyzing the impact of speaker localization errors on speech separation for automatic speech recognition",  	arXiv:1910.11114
+                        </li>
                         </ul>
                     </div>
                     <br></br>
@@ -281,6 +281,17 @@
                     </div>
                 </section>
 
+                <section>
+                    <h1>ANR VocADom pipeline</h1>
+                            <img src ="fig/intro/pipe2.svg" width="95%">
+                            <br></br>
+                            <ul>
+                                <li>Far-field ASR to control home devices</li>
+                                <li>Multiple microphone arrays across room</li>
+                                <li>Focus is on localization and speech separation </li>
+                            </ul>
+                </section>
+
                 <! --    -->
                 <section>
                     <h1>Problem overview</h1>
@@ -289,6 +300,7 @@
                             <img src="fig/intro/home.png" alt="" width="100%"></br>
                             <br/>
                             <div class="affirmation" style="margin-top:-0.2em; margin-bottom:0.5em;"> Sources of noise in a typical home</div>
+                            <!--
                             <h3>
                                 Mixture
                                 <audio controls style="width: 100px;">
@@ -300,6 +312,7 @@
                                         <source src="fig/intro/target.wav"    type="audio/wav">
                                 </audio> 
                              </h3>
+                             -->
                          </div>
                          <div class='col'>
                                     <ul>
@@ -309,11 +322,11 @@
                                             &nbsp&nbsp&nbsp $\rightarrow~~~ $ <span >Reverberations</span>  <br/>
                                             &nbsp&nbsp&nbsp $\rightarrow~~~ $ <span >Interfering Speech</span>  <br/>
                                         <li> Interfering speech is non-stationary</li>
-                                        <li> Impact performance of speech enabled devices </li>
-                                        <li>Multiple Evaluation Campaigns </li>
+                                        <li> Impact performance of speech enabled devices like <b>Alexa</b> </li>
+                                        <li>Multiple evaluation campaigns </li>
                                             &nbsp&nbsp&nbsp $\rightarrow~~~ $ <span >REVERB (Reverberations)</span>  <br/>
                                             &nbsp&nbsp&nbsp $\rightarrow~~~ $ <span >CHiME 1-4 (Reverb+Noise)</span>  <br/>
-                                            &nbsp&nbsp&nbsp $\rightarrow~~~ $ <span >CHiME 5,6 (Dinner party)</span>  <br/>
+                                            &nbsp&nbsp&nbsp $\rightarrow~~~ $ <span >CHiME 5,6 (Cocktail party)</span>  <br/>
                                     </ul>
                          </div>
                      </div>
@@ -365,6 +378,7 @@
                 </section>
 
                 <!-- localization overview -->
+                <!--
                 <section>
                     <h1>What is speaker location</h1>
                     <div class='multiCol'>
@@ -388,6 +402,7 @@
                             </ul>
                         </div>
                     </section>
+                    -->
 				<section >
                     <h1>Overview of speaker localization</h1>
                     <h5>
@@ -421,7 +436,7 @@
                         </div>
                     </div>
                     <h5>
-                                Based on interchannel time difference, level difference or coherence 
+                                Based on interchannel time difference, level difference 
                     </h5>
                             <ul>
                                 <li>
@@ -460,10 +475,10 @@
                     <div class="references" style="float:left; ">
                         <ul style="font-size:20px;">
                             <li>
-                                Knapp, C. and Carter, G. "The generalized correlation method for estimation of time delay.", IEEE TASSP, 1976
+                                Knapp, C. and Carter, G. (1976) The generalized correlation method for estimation of time delay. TASSP
                             </li>
                             <li>
-                                Evers, C., et. al, "The LOCATA challenge: Acoustic source localization and tracking.", IEEE TASLP (Submitted), 2020
+                                Evers, C., et. al, (2020) The LOCATA challenge: Acoustic source localization and tracking. TASLP (Submitted)
                             </li>
                         </ul>
                     </div>
@@ -478,6 +493,20 @@
                     \mathbf{R}_{\mathbf{x}_{i}\mathbf{x}_{i'}}(n,k) &= \sum_f \frac{\mathbf{x}_{i}(n,f) \mathbf{x}_{i'}^H(n,f)}{|\mathbf{x}_{i}(n,f)||\mathbf{x}_{i'}(n,f)|} e^{j2\pi fk}
                     \end{aligned}
                     $$
+                    <div class="references" style="float:left; ">
+                        <ul style="font-size:20px;">
+                            <li>
+
+
+                                Knapp, C. and Carter, G. (1976) The generalized correlation method for estimation of time delay. TASSP
+                            </li>
+                            <li>
+                                Evers, C., et. al, (2020) The LOCATA challenge: Acoustic source localization and tracking. TASLP (Submitted)
+                            </li>
+                        </ul>
+                    </div>
+                    <br></br>
+                    <hr>
 
                     <h4> Product of phase difference and sinusoids</h4>
                     $$
@@ -497,12 +526,14 @@
                 $\mathbf{\Xi}(k) = [e^{j2\pi f_1 k}, ..., e^{j2\pi F k}] \rightarrow$ sinusoidal subspace
                 </section>
 
+                <!--
                 <section>
                     <h3>Generalized Cross Correlation with PHAse Transform  (GCC-PHAT) with 1-speaker</h3>
                     <center>
                             <img src="fig/loc/gcc_single.svg" alt="" width="70%" class="center"></br>
                     </center>
                 </section>
+                -->
 				<section >
                     <h3>Generalized Cross Correlation with PHAse Transform (GCC-PHAT) with 2-speakers </h3>
                     <center>
@@ -602,12 +633,13 @@
                     <div class="references" style="float:left; ">
                         <ul style="font-size:20px;">
                             <li>
-                                Erdogan.H,  et. al., “Phase-sensitive and recognition-boosted speech separation using deep recurrent neural networks, ” ICASSP, 2015 
+                                Erdogan, H., Hershey, J. R., Watanabe, S., and Le Roux, J. (2015). Phase-sensitive and recognition-boosted speech separation using deep recurrent neural networks. In ICASSP
                             </li>
                         </ul>
                     </div>
                 </section>
 
+                <!--
                 <section>
                     <h1> Step 3: Target Mask </h1>
                     <h5>
@@ -646,7 +678,7 @@
                         </li>
                     </ul>
                 </section>
-
+                -->
                 <section>
                     <h1>Estimating target masks</h1>
                         <center>
@@ -655,15 +687,24 @@
                 </section>
                 <section>
                     <h1>Estimating target masks</h1>
-                    <h2>Mixture spectra</h2>
-                            <img src="fig/loc/subseg.svg" alt="" width="120%"/>
+                    <div class='multiCol'>
+                        <div class='col'>
+                        <h2>Mixture spectra</h2>
+                            <img src="fig/loc/subseg_trim.png" alt="" width="120%"/>
+                        </div>
+                        <div class='col'>
+                        <h2>Phonetic spectra </h2>
+                            <img src="fig/loc/phone_spec_trim.png" alt="" width="120%"/>
+                        </div>
                 </section>
 
+                <!--
                 <section>
                     <h1>Estimating target masks</h1>
                     <h2>Phonetic spectra using the keyword</h2>
                             <img src="fig/loc/phone_spec.svg" alt="" />
                 </section>
+                -->
 
                 <section>
                     <h1>Estimating target masks</h1>
@@ -794,7 +835,6 @@
                     <h1>Recording real data
                             <audio controls style="width: 100px;">
                                 <source src="http://members.loria.fr/SunitS/wp-content/blogs.dir/121/files/sites/121/2020/01/2_spk_mix.1.wav"
-                                    type="audio/wav">
                             </audio> 
                     </h1>
                     <ul>
@@ -891,9 +931,80 @@
                         <li>Non-negative matrix factorization</li>
                         &nbsp&nbsp&nbsp $\rightarrow~~~ $ Learn non-negative subspaces and find linear combinations that best describe the speaker
                         <li>DNN based methods in time-frequency domain </li>
-                        &nbsp&nbsp&nbsp $\rightarrow~~~ $  Compute masks for each speaker using DNNs. Ex: Deep Clustering
+                        &nbsp&nbsp&nbsp $\rightarrow~~~ $  Compute masks for each speaker using DNNs. Ex: Deep Clustering, u-PIT
+
+                    <div class="references" style="float:left;">
+                    <ul style="font-size:20px;">
+                        <li>
+                        Hershey, J. R., Chen, Z., Le Roux, J., and Watanabe, S. (2016). Deep clustering: Discriminative embeddings for segmentation and separation. In ICASSP
+                        </li>
+                        <li>
+                            Chen, Z., Luo, Y., and Mesgarani, N. (2017). Deep attractor network for single-microphone speaker separation. In ICASSP
+                        </li>
+                        <li>
+                            Kolbaek, M., Yu, D., Tan, Z.-H., and Jensen, J. (2017). Multitalker speech separation with utterance-level permutation invariant training of deep recurrent neural networks. In TASLP
+                        </li>
+                    </ul>
+                    </div>
                         <li>DNN based methods from raw waveform </li>
                         &nbsp&nbsp&nbsp $\rightarrow~~~ $  Learn encoder, decoder and masker. Ex: Conv-Tasnet
+                    <div class="references" style="float:left;">
+                    <ul style="font-size:20px;">
+                        <li>
+                            Luo, Y. and Mesgarani, N. (2019). Conv-TasNet: Surpassing ideal time-frequency magnitude masking for speech separation. TASLP
+                        </li>
+                    </ul>
+                    </ul>
+                </section>
+
+                <section>
+                    <h1>Informed speech separation with DNN </h1>
+                    <ul>
+                        <li>Using speaker identity</li>
+                    <div class="references" style="float:left; ">
+                        <ul style="font-size:20px;">
+                            <li>
+                                Du, J., Tu, Y. H., Sun, L., Ma, F., Wang, H. K., et. al. (2016). The USTC-iFlytek system for CHiME-5 challenge. Proc. CHiME-5
+                            </li>
+                        </ul>
+                    </div> </br>
+                    <li>Implicity use of speaker location : Phase difference between microphone pairs
+                    </li>
+                    <div class="references" style="float:left; ">
+                        <ul style="font-size:20px;">
+                            <li>
+                                Wang, Z. and Wang, D. (2019). Combining spectral and spatial features for deep learning based blind speaker separation, TASLP                        </li>
+                        </ul>
+                    </div>
+                    <br>
+                    </br>
+                    <li>
+                            Explicit use of speaker location : TDOA/DOA 
+                    </li>
+                        <div class="references" style="float:left; "> <ul style="font-size:20px;">
+                                <ul>
+                                    <li>
+                                        Perotin, L., Serizel, R., Vincent, E., and Guérin, A. (2018). Multichannel speech separation with recurrent neural networks from high-order ambisonics recordings. In ICASSP
+                                    </li>
+                                    <li>
+                                        Chen, Z., Xiao, X., Yoshioka, T., Erdogan, H., Li, J., and Gong, Y. (2018). Multi-Channel overlapped speech recognition with location guided speech extraction network. In SLT
+                                    </li>
+                                </ul>
+                            </div>
+                            <li>
+                                Motivation:
+                            </li>
+                            &nbsp&nbsp&nbsp $\rightarrow~~~ $ Impact of localization errors on speech separation performance </br>
+                            &nbsp&nbsp&nbsp $\rightarrow~~~ $ Can spatial distance between speakers compensate for low SIR? </br>
+                        <div class="references" style="float:left; "> <ul style="font-size:20px;">
+                                <ul>
+                                    <li>
+                                        Barfuss, H and Kellermann, K (2016). On the impact of localization errors on HRTF-based robust least-squares beamforming, In DACA
+                                    </li>
+                                </ul>
+                            </div>
+
+                            &nbsp&nbsp&nbsp $\rightarrow~~~ $ Make speech separation network robust to localization errors 
                     </ul>
                 </section>
 
@@ -909,6 +1020,7 @@
                         <li>Compute a <b>beamformer</b> using the estimated covariance matrices </li>
                     </ul>
                 </section>
+
 
                 <section>
                     <h1>Multichannel filtering a.k.a Beamforming</h1>
@@ -928,8 +1040,8 @@
                 </div>
                 </section>
 
+                <!--
                 <section>
-                    
                     <h1>Types of beamformers</h1>
                     <div class="affirmation" style="margin-top:-0.2em; margin-bottom:0.5em;"> 
                         Data independent beamformers
@@ -964,6 +1076,10 @@
                         </li>
                     </ul>
                 </section>
+                -->
+
+
+
                 <section>
                 <h1>Data independent beamformer </h1>
                 <h2>Delay and sum beamformer</h2>
@@ -996,7 +1112,44 @@
                 \end{aligned}
                 $$
                 </section>
+                <section>
+                    <h1>Data dependent beamformers</h1>
+                    <h2>Rank-1 constraint multichannel Wiener filtering (R1-MWF)</h2>
+                    <div class="affirmation" style="margin-top:0.5em; margin-bottom:0.5em;"> 
+                        </br>
+                        <center>
+                            $$
+                            \begin{aligned}
+                            \hat{s}_j(n,f) &= \frac{\mathbf{R}_{\mathbf{u}}^{-1} (f)  \mathbf{R}_{\mathbf{R1}}(f)\mathbf{e}_1}  
+                            {\mu+Tr\{\mathbf{R}_{\mathbf{u}}^{-1}(f) \mathbf{R}_{\mathbf{R1}}(f)\}}\mathbf{x}(n,f)
+                            \end{aligned}
+                            $$
+                        </center>
+                        </br>
+                    </div>
+                    <br></br>
+                            $$
+                            \begin{aligned}
+                            \mathbf{R}_{\text{R1}} &= \sigma_{s_j} \mathbf{q}\mathbf{q}^H\\
+                            \mathbf{q} & \leftarrow \text{Principal Eigen Vector of }(\mathbf{R}_{\mathbf{u}}^{-1}\mathbf{R}_{\mathbf{c}_j}) \\
+                            \mathbf{e}_1 &= [1,0,...,0]
+                            \end{aligned}
+                            $$
+                            $\mu$  is the trade-off factor between noise reduction and speech distortion
 
+
+                    <div class="references" style="float:left;">
+                    <ul style="font-size:20px;">
+                        <li>
+                            Souden, M., Benesty, J., and Affes, S. (2010). On optimal frequency-domain multichannel linear filtering for noise reduction. TASLP
+                        </li>
+                        <li>
+                            Wang, Z., Vincent, E., Serizel, R., and Yan, Y. (2018). Rank-1 constrained multichannel Wiener filter for speech recognition in noisy environments. Computer Speech and Language
+                        </li>
+                    </ul>
+                    </div>
+                </section>
+                <!--
                 <section>
                     <h1>Data dependent beamformers</h1>
                     <h2>Multichannel Wiener Filtering (MWF)</h2>
@@ -1097,13 +1250,14 @@
                     </div>
                 </section>
 
+                -->
 
                 <section>
                     <h1>Source separation given localization information, $\theta$</h1>
                     <center>
                     <img src="fig/se/enh_pipeline.svg" alt="" height="80%"></br>
                     </center>
-                    <br></br>
+                    </br>
                     <h5>
                             Step 1: Delay and Sum (DS) beamforming using the estimated target location
                     </h5>
@@ -1115,17 +1269,23 @@
                             Magnitude spectra of the delay and sum signal
                         </li>
                         <li>
-                            Phase difference of the delay and sum signal with respect to a reference microphone
+                            IPD of the delay and sum signal with respect to a reference microphone
+                        </li>
+                        <li> 
+                            A two-layer Bi-LSTM  network
                         </li>
                     </ul>
-                    <br></br>
+                    </br>
                     <h5>
                         Step 3: Apply data dependent beamformers to extract target speech
                     </h5>
                     <div class="references" style="float:left;">
-                    <ul style="font-size:20px;">
+                    <ul style="font-size:18px;">
                         <li>
-                            Chen, Z., et. al. "Multi-Channel overlapped speech recognition with location guided speech extraction network.", SLT, 2018
+                            Chen, Z., Xiao, X., Yoshioka, T., Erdogan, H., Li, J., and Gong, Y. (2018). Multi-Channel overlapped speech recognition with location guided speech extraction network. In SLT
+                        </li>
+                        <li>
+                            Perotin, L., Serizel, R., Vincent, E., and Guérin, A. (2018). Multichannel speech separation with recurrent neural networks from high-order ambisonics recordings. In ICASSP
                         </li>
                     </ul>
                     </div>
@@ -1135,28 +1295,92 @@
                     <h1>Effect of delay and sum beamforming on phase difference</h1>
                     <div class='multiCol'>
                         <div class='col'>
-                     <center>
-                            IPD of the signal 
-                     </center>
-                            <img src="fig/se/phase_diff_before_ds.png" alt="" width="100%"></br>
-                            <ul>
-                                <li>IPD at time-frequency bins dominated by source is zero after delay and sum beamforming </li>
-                                <li>Gives speech like patterns which are useful for DNN to estimate mask</li>
-                            </ul>
+                            <center>
+                                IPD of the (direct) signal + noise
+                            </center>
+                            <img src="fig/se/phase_diff_before_ds_noise.png" alt="" width="150%"></br>
                         </div>
                         <div class='col'>
-                     <center>
-                            IPD of the signal+noise
-                     </center>
-                            <img src="fig/se/phase_diff_before_ds_noise.png" alt="" width="150%"></br>
-                     <center>
-                        After delay and sum beamforming
-                     </center>
-                        <img src="fig/se/phase_diff_after_ds_noise.png" alt="" width="150%"/>
+                            <center>
+                                After delay and sum beamforming
+                            </center>
+                            <img src="fig/se/phase_diff_after_ds_noise.png" alt="" width="150%"/>
                         </div>
-                     </div>
+                    </div>
+                    <ul>
+                        <li>IPD at time-frequency bins dominated by source is zero after DSB </li>
+                        <li>Gives speech like patterns which are useful for DNN to estimate mask</li>
+                        <li>Reduces the dimension from $I \times (I-1)  \times F \rightarrow 2 \times F$ phase features </li>
+                        <li>No dependency on the array geometry</li>
+                    </ul>
                 </section>
 
+                <section>
+                    <h1>Dataset</h1>
+                    <ul>
+                        <li>
+                        WSJ0-2MIX dataset
+                        </li>
+                        $\rightarrow~~~ $  100 % overlap (min version)
+                         $| $ No noise and reverberation
+                         $ |$  Single Channel
+                        <div class="references" style="float:left;">
+                            <ul style="font-size:20px;">
+                                <li>
+                                    Hershey, J. R., Chen, Z., Le Roux, J., and Watanabe, S. (2016). Deep clustering: Discriminative embeddings for segmentation and separation., In ICASSP
+                                </li>
+                            </ul>
+                        </div>
+
+                        <li>
+                            WHAM!
+                        </li>
+                         $\rightarrow~~~ $  Based on WSJ0-2MIX  $|$  Real ambient noise  $|$  Single Channel
+                        <div class="references" style="float:left;">
+                            <ul style="font-size:20px;">
+                                <li>
+                                    Wichern, G., Antognini, J., Flynn, M., Zhu, L. R., McQuinn, E., Crow, D., Manilow, E.,
+and Roux, J. L. (2019). WHAM!: Extending speech separation to noisy environments. Interspeech
+                                </li>
+                            </ul>
+                        </div>
+                           
+
+                        <li>
+                            Multichannel WSJ0-2MIX
+                        </li>
+                        $\rightarrow~~~ $  Real and Simulated RIR $|$  No noise $|$  8 Channels</br>
+                        <div class="references" style="float:left;">
+                            <ul style="font-size:20px;">
+                                <li>
+                                    Wang, Z. and Wang, D. (2019). Combining spectral and spatial features for deep learning based blind speaker separation. TASLP
+                                </li>
+                            </ul>
+                        </div> </br>
+                        <li>
+                            Proposed
+                        </li>
+                        &nbsp&nbsp&nbsp $\rightarrow~~~ $  Based on max version of WSJ0-2MIX : No 100% overlap
+                        </br>
+                        &nbsp&nbsp&nbsp $\rightarrow~~~ $  4 channels with Microsoft Kinect like array geometry
+                        </br>
+                        &nbsp&nbsp&nbsp $\rightarrow~~~ $  Real ambient noise from CHiME-5 dataset
+                        </br>
+                        &nbsp&nbsp&nbsp $\rightarrow~~~ $  DOA separation between speakers $>5^\circ$
+                        </br>
+                        &nbsp&nbsp&nbsp $\rightarrow~~~ $  Designed to study impact of localization on speech separation
+                        </br>
+                        <div class="references" style="float:left;">
+                            <ul style="font-size:20px;">
+                                <li>
+                                    https://github.com/sunits/Reverberated_WSJ_2MIX
+                                </li>
+                            </ul>
+                        </div>
+                    </ul>
+                </section>
+
+                <!--
                 <section>
                     <h1>Model training</h1>
                     <h2>Data</h2>
@@ -1190,6 +1414,7 @@
                         </li>
                     </ul>
                 </section>
+                -->
 
                 <section>
                     <h1>Results</h1>
@@ -1254,7 +1479,7 @@
                     <div class="references" style="float:left;">
                     <ul style="font-size:20px;">
                     <li>
-                        Povey. D, et al. , “Purely sequence-trained neural networks for ASR based on lattice-free MMI.,” in Interspeech, 2016
+                        Povey. D, et al., (2016) Purely sequence-trained neural networks for ASR based on lattice-free MMI, in Interspeech
                     </li>
                     </ul>
                 </div>
@@ -1270,12 +1495,19 @@
                     <audio controls style="width: 50px;">
                         <source src="http://members.loria.fr/SunitS/wp-content/blogs.dir/121/files/sites/121/2020/01/447o030y_1.9399_052a050t_-1.9399.wav"                             type="audio/wav">
                     </audio> 
-                        Speaker 1
+                        S1
                     <audio controls style="width: 50px;">
                         <source src="http://members.loria.fr/SunitS/wp-content/blogs.dir/121/files/sites/121/2020/01//true_doa_s1_447o030y_1.9399_052a050t_-1.9399.wav" type="audio/wav"> </audio>
-                        Speaker 2
+                        S2
                     <audio controls style="width: 50px;">
                         <source src="http://members.loria.fr/SunitS/wp-content/blogs.dir/121/files/sites/121/2020/01/true_doa_s2_447o030y_1.9399_052a050t_-1.9399.wav" type="audio/wav"> </audio>
+                        Conv-TasNet: S1
+                    <audio controls style="width: 50px;">
+                        <source src="http://members.loria.fr/SunitS/wp-content/blogs.dir/121/files/sites/121/2020/03/tasnet_s1_447o030y_1.9399_052a050t_-1.9399.wav" type="audio/wav"> </audio>
+
+                        S2
+                    <audio controls style="width: 50px;">
+                        <source src="http://members.loria.fr/SunitS/wp-content/blogs.dir/121/files/sites/121/2020/03/tasnet_s2_447o030y_1.9399_052a050t_-1.9399.wav" type="audio/wav"> </audio>
                         <br></br>
 
                     <h3>Female Female speech separation</h3>
@@ -1283,14 +1515,20 @@
                     <audio controls style="width: 50px;">
                         <source src="http://members.loria.fr/SunitS/wp-content/blogs.dir/121/files/sites/121/2020/01//050a050l_1.2369_445o0305_-1.2369.wav" type="audio/wav">
                     </audio> 
-                    Speaker 1
+                    S1
                     <audio controls style="width: 50px;">
                         <source src="http://members.loria.fr/SunitS/wp-content/blogs.dir/121/files/sites/121/2020/01//loop_s1_050a050l_1.2369_445o0305_-1.2369.wav" type="audio/wav">
                     </audio> 
-                    Speaker 2
+                    S2
                     <audio controls style="width: 50px;">
                         <source src="http://members.loria.fr/SunitS/wp-content/blogs.dir/121/files/sites/121/2020/01/loop_s2_050a050l_1.2369_445o0305_-1.2369.wav" type="audio/wav">
                     </audio> 
+                        Conv-TasNet: S1
+                    <audio controls style="width: 50px;">
+                        <source src="http://members.loria.fr/SunitS/wp-content/blogs.dir/121/files/sites/121/2020/03/tasnet_s1_050a050l_1.2369_445o0305_-1.2369.wav" type="audio/wav"> </audio>
+                        S2
+                    <audio controls style="width: 50px;">
+                        <source src="http://members.loria.fr/SunitS/wp-content/blogs.dir/121/files/sites/121/2020/03/tasnet_s2_050a050l_1.2369_445o0305_-1.2369.wav" type="audio/wav"> </audio>
                     <h2>Real Data </h2>
                     <hr>
                     Mixture
@@ -1305,16 +1543,12 @@
                     <h4>
                      Different microphone array geometry compared to simulated data
                     </h4>
-
                 </section>
 
                 <section>
-                    <h1>Speech separation after estimating speaker location</h1>
+                    <h1>Observations </h1>
                     <ul>
-                        <li>Speech separation network  not robust to  localization errors
-                        </li>
-                        &nbsp&nbsp&nbsp $\rightarrow~~~ $ Joint training of localization and speech separation network
-                        <li> Signal-to-Interference ratio has a large impact on performance</li>
+                        <li> Signal-to-Interference ratio vs DOA difference </li>
                         </br>
                         <table>
                             <tr>
@@ -1322,64 +1556,113 @@
                                 <td>$<-5$</td>
                                 <td>$[-5, 0]$</td>
                                 <td>$[0, 5]$</td>
-                                <td>$[5, 10]$</td>
-                                <td>$ > 10$</td>
+                                <td>$ > 5$</td>
                             </tr>
                             <tr>
-                                <td><b>WER (%)</b></td>
-                                <td>59.7</td>
-                                <td>33.8</td>
-                                <td>25.4</td>
-                                <td>22.4</td>
-                                <td>24.3</td>
+                                <td><b> $<10^{\circ}$ </b></td>
+                                <td>67.0</td>
+                                <td>43.2</td>
+                                <td>25.7</td>
+                                <td>26.3</td>
+                            </tr>
+                            <tr>
+                                <td><b> $[10-30]^{\circ}$ </b></td>
+                                <td>58.3</td>
+                                <td>32.6</td>
+                                <td>24.7</td>
+                                <td>20.5</td>
+                            </tr>
+                            <tr>
+                                <td><b> $[30-50]^{\circ}$ </b></td>
+                                <td>60.0</td>
+                                <td>32.0</td>
+                                <td>23.4</td>
+                                <td>22.2</td>
+                            </tr>
+                            <tr>
+                                <td><b> $>50^{\circ}$ </b></td>
+                                <td>56.6</td>
+                                <td>29.2</td>
+                                <td style="color:red"><b>21.7</b></td>
+                                <td>19.4</td>
                             </tr>
                         </table>
                         </br>
+                        <li>Speech separation network  not robust to  localization errors
+                        </li>
+                        &nbsp&nbsp&nbsp $\rightarrow~~~ $ Joint training of localization and speech separation network
                         <li>Iteratively estimate sources using deflation strategy</li>
-                        <li>Remove dominant speaker first and then estimate dormant speaker </li>
+                        &nbsp&nbsp&nbsp $\rightarrow~~~ $ Remove dominant speaker first and then estimate dormant speaker 
                     </ul>
                     <div class="references" style="float:left;">
                         <ul style="font-size:20px;">
                             <li>
-                                Kinoshita.K, et. al. “Listening to each speaker one by one with recurrent selective hearing networks,” in ICASSP, 2018
+                                Kinoshita, K., Drude, L., Delcroix, M., and Nakatani, T. (2018). Listening to each speaker one by one with recurrent selective hearing networks. In ICASSP
                             </li>
                         </ul>
                     </div>
                 </section>
+
 
                 <section>
                     <h1>Speaker LOcalization Guided Deflation (SLOGD) approach</h1>
                     <h2>Estimation of the dominant speaker</h2>
-                    <center>
                     <img src="fig/se/deflation_step1.svg" width="400%" >
-                    </center>
                     <ul>
-                        <li> DOA/noise network estimates DOA every frame </li>
-                        <li>utterance - permutation invariant training criteria used for training </li>
-                        &nbsp&nbsp&nbsp $\rightarrow~~~ $  Compute DOA loss for both the speakers </br>
-                        &nbsp&nbsp&nbsp $\rightarrow~~~ $  Backpropagate the loss corresponding to the minimum of both the losses </br>
-                        &nbsp&nbsp&nbsp $\rightarrow~~~ $  Force mask network to estimate the mask of the dominant speaker
+                        <li>Localization $\Rightarrow$ Delay-and-sum beamform $\Rightarrow$ Mask estimation</li>
+                        <li> Trained network to estimate either speaker location or output as noise (VAD) </li>
+                        <li>Used ASR alignments from clean data as voice activity information while training</li>
+                        <li>utterance - permutation invariant training criteria used for training DOA network</li>
+                        <div class="affirmation" style="margin-top:0.5em; margin-bottom:0.5em;"> 
+                        $$ L_j = \frac{1}{N}\sum_k \sum_n \mathbb{I}_{kj}(n)  \log(p(\theta_k(n)))$$
+                        $\mathbb{I}_{kj}$ is the Indicator variable of the $j^{th}$ source for the $k^{th}$ angle 
+                        $$ L = \min_j L_j$$
+
+                        </div>
                     </li>
                     </ul>
 
+                    <!--
                     <div class="references" style="float:left;">
                         <ul style="font-size:20px;">
                             <li>
-                                Kolbaek, M., et. al. "Multitalker speech separation with utterance-level permutation invariant training of deep recurrent neural networks." IEEE TASLP, 2017
+                                Kolbaek, M., Yu, D., Tan, Z.-H., and Jensen, J. (2017). Multitalker speech separation with utterance-level permutation invariant training of deep recurrent neural networks, TASLP
                             </li>
                         </ul>
                     </div>
-
+                    -->
                 </section>
+
+                <!--
+                <section>
+                    <h1>Localization block</h1>
+                    <ul>
+                        <li>Localization makes sense only when speaker is active </li>
+                        <li> Trained network to estimate either speaker location or output as noise </li>
+                        <li>Used ASR alignments from clean data as voice activity information while training</li>
+                        <li>Pool localization across frame while deciding </li>
+                        <li>utterance-Permutation Invariant (u-PIT) like  criteria used to decide dominant speaker for localization</li>
+
+                        <div class="affirmation" style="margin-top:0.5em; margin-bottom:0.5em;"> 
+                            <br></br>
+                        $$ L_j = \frac{1}{N}\sum_k \sum_n \mathbb{I}_{kj}(n)  \log(p(\theta_k(n)))$$
+                        $\mathbb{I}_{kj}$ is the Indicator variable of the $j^{th}$ source for the $k^{th}$ angle 
+                        $$ L = \min_j L_j$$
+
+                        </div>
+                    </ul>
+                </section>
+                -->
+
                 <section>
                     <h1>Speaker LOcalization Guided Deflation (SLOGD) approach</h1>
-                    <h2>Estimation of the dormant speaker</h2>
+                    <h2>Estimation of the second speaker</h2>
                     <center>
                     <img src="fig/se/loop.svg" width="150%" >
                     </center>
                     <ul>
                         <li>Remove the dominant speaker from the mixture </li>
-                        <li>Estimate the DOA and the mask of the non-dominant speaker</li>
+                        <li>Estimate the DOA and mask of the non-dominant speaker</li>
                         <li>Use data dependent beamformers to extract sources from mask</li>
                         
                     </ul>
@@ -1429,11 +1712,21 @@
                 <section>
                     <h1>Conclusion: Speech separation</h1>
                     <ul>
-                        <li>Speaker location can be used for speech separation</li>
-                        <li>Deflation based strategy was found to improve the speech separation performance</li>
+                        <li>Speaker location can be used for speech separation </li>
+                        <li>Spatial distance can compensate for low SIR values </li>
+                        <li>A deflation based strategy was proposed to improve robustness of speech separation network</li>
                     </ul>
+                    <center>
+                        <h3>
+                            <a href="https://github.com/mpariente/AsSteroid/" target="_blank">
+                                https://github.com/mpariente/AsSteroid/
+                            </a>
+                        </h3>
+                    </center>
+                    <img src="fig/se/asteroid.png" alt="">
                 </section>
 
+                <!--
                 <section>
                     <div class="affirmation" style="margin-top:2.8em; margin-bottom:2.8em;">
                         <br></br>
@@ -1441,6 +1734,7 @@
                         <br></br>
                     </div>
                 </section>
+                -->
             </div> 
             <div class='footer'>
                 <img src="figures/logos/inria.svg" alt="Logo" class="logo" id="bottom"/>
