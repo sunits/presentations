@@ -8,10 +8,10 @@
 
         <link rel="stylesheet" href="css/reveal.css">
         <link rel="stylesheet" href="css/theme/lirmm.css">
-        <link rel="stylesheet" href="css/extra.css">
 
         <!-- Theme used for syntax highlighting of code -->
         <link rel="stylesheet" href="lib/css/github.css">
+        <link rel="stylesheet" href="css/extra.css">
         <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
         <!-- Printing and PDF exports -->
         <script>
@@ -43,9 +43,9 @@
                     <h1>Problem overview</h1>
                     <div class='multiCol'>
                         <div class='col'>
-                            <img src="fig/intro/home.png" alt="" width="100%"></br>
+                            <img src="fig/intro/home.png" alt="" width="090%"></br>
                             <br/>
-                            <div class="affirmation" style="margin-top:-0.2em; margin-bottom:0.5em;"> Sources of noise in a typical home</div>
+                            <div class="affirmation" style="margin-top:-0.2em; margin-bottom:0.5em;"> Speech distortions in a typical home</div>
                             <!--
                             <h3>
                                 Mixture
@@ -65,12 +65,11 @@
                                         <li>Three main adversaries
                                         </li>
                                             &nbsp&nbsp&nbsp $\rightarrow~~~ $ <span >Noise</span>  <br/>
-                                            &nbsp&nbsp&nbsp $\rightarrow~~~ $ <span >Reverberations</span>  <br/>
-                                            &nbsp&nbsp&nbsp $\rightarrow~~~ $ <span >Interfering Speech</span>  <br/>
-                                        <li> Interfering speech is non-stationary</li>
+                                            &nbsp&nbsp&nbsp $\rightarrow~~~ $ <span >Reverberation</span>  <br/>
+                                            &nbsp&nbsp&nbsp $\rightarrow~~~ $ <span >Interfering speech</span>  <br/>
                                         <li> Impact performance of speech enabled devices </li>
                                         <li>Multiple evaluation campaigns </li>
-                                            &nbsp&nbsp&nbsp $\rightarrow~~~ $ <span >REVERB (Reverberations)</span>  <br/>
+                                            &nbsp&nbsp&nbsp $\rightarrow~~~ $ <span >REVERB (Reverberation)</span>  <br/>
                                             &nbsp&nbsp&nbsp $\rightarrow~~~ $ <span >CHiME 1-4 (Reverb+Noise)</span>  <br/>
                                             &nbsp&nbsp&nbsp $\rightarrow~~~ $ <span >CHiME 5,6 (Cocktail party)</span>  <br/>
                                     </ul>
@@ -86,20 +85,19 @@
                             <img src="fig/intro/home_notations.png" alt="" width="100%"></br>
                         </div>
                         <div class='col'>
-                            <div class="affirmation" style="margin-top:-0.2em; margin-bottom:0.5em;"> Signal mixing model </div>
+                            <div class="affirmation" style="margin-top:-0.2em; margin-bottom:0.5em;"> Signal model </div>
+                            $$ 
+                            \begin{aligned}
+                            \mathbf{x}(t)& = \sum_{j=1}^J \mathbf{c}_j(t) \quad J \text{ sources and } I \text{ microphones }\\
+                            \end{aligned}
                             $$
-                            \mathbf{c}_j(t) = \mathbf{a}_j(t) \star s_j(t),\quad 
+                            $$
+                            \mathbf{c}_j(t) = \mathbf{a}_j \star s_j(t)
                             $$
                             $\mathbf{a}_j \text{ is the room impulse response (RIR)}$
                             <center>
                             <img src="fig/intro/rir_create.svg" alt="" width="090%">
                             </center>
-                            $ 
-                            \begin{aligned}
-                            \mathbf{x}(t)& = \sum_{j=1}^J \mathbf{c}_j(t), \quad J \text{ sources}, I \text{ microphones }\\
-                            \mathbf{x} &= [x_1(t), ..., x_I(t)] \\
-                            \end{aligned}
-                            $
                     </div>
                 </section>
 
@@ -108,10 +106,10 @@
                     <ul>
                         <li>Computational auditory scene analysis frameworks</li>
                         &nbsp&nbsp&nbsp $\rightarrow~~~ $ Imitate human hearing
-                        <li>Non-negative matrix factorization</li>
-                        &nbsp&nbsp&nbsp $\rightarrow~~~ $ Learn non-negative subspaces and find linear combinations that best describe the speaker
+                        <li>Nonnegative matrix factorization</li>
+                        &nbsp&nbsp&nbsp $\rightarrow~~~ $ Learns Nonnegative subspaces and finds linear combinations that best describe the speaker
                         <li>DNN based methods in time-frequency domain </li>
-                        &nbsp&nbsp&nbsp $\rightarrow~~~ $  Compute masks for each speaker using DNNs. Ex: Deep Clustering, u-PIT
+                        &nbsp&nbsp&nbsp $\rightarrow~~~ $  Compute a mask for each speaker using DNNs. Ex: Deep Clustering, u-PIT
 
                     <div class="references" style="float:left;">
                     <ul style="font-size:20px;">
@@ -122,12 +120,12 @@
                             Chen, Z., Luo, Y., and Mesgarani, N. (2017). Deep attractor network for single-microphone speaker separation. In ICASSP
                         </li>
                         <li>
-                            Kolbaek, M., Yu, D., Tan, Z.-H., and Jensen, J. (2017). Multitalker speech separation with utterance-level permutation invariant training of deep recurrent neural networks. In TASLP
+                            Kolbæk, M., Yu, D., Tan, Z.-H., and Jensen, J. (2017). Multitalker speech separation with utterance-level permutation invariant training of deep recurrent neural networks. TASLP
                         </li>
                     </ul>
                     </div>
                         <li>DNN based methods from raw waveform </li>
-                        &nbsp&nbsp&nbsp $\rightarrow~~~ $  Learn encoder, decoder and masker. Ex: Conv-Tasnet
+                        &nbsp&nbsp&nbsp $\rightarrow~~~ $  Learns encoder, decoder and masker. Ex: Conv-Tasnet
                     <div class="references" style="float:left;">
                     <ul style="font-size:20px;">
                         <li>
@@ -144,11 +142,11 @@
                     <div class="references" style="float:left; ">
                         <ul style="font-size:20px;">
                             <li>
-                                Du, J., Tu, Y. H., Sun, L., Ma, F., Wang, H. K., et. al. (2016). The USTC-iFlytek system for CHiME-5 challenge. Proc. CHiME-5
+                                Du, J., Tu, Y. H., Sun, L., Ma, F., Wang, H. K., et. al. (2016). The USTC-iFlytek system for CHiME-5 challenge.  CHiME-5
                             </li>
                         </ul>
                     </div> </br>
-                    <li>Implicity use of speaker location : Phase difference between microphone pairs
+                    <li>Implicit use of speaker location : Phase difference between microphone pairs
                     </li>
                     <div class="references" style="float:left; ">
                         <ul style="font-size:20px;">
@@ -293,17 +291,17 @@
                     </center>
                     </br>
                     <h5>
-                            Step 1: Delay and Sum (DS) beamforming using the estimated target location
+                            Step 1: Delay-and-Sum (DS) beamforming using the estimated target location
                     </h5>
                     <h5>
                             Step 2: Estimate a mask corresponding to the target using
                     </h5>
                     <ul>
                         <li>
-                            Magnitude spectra of the delay and sum signal
+                            Magnitude spectra of the beamformed signal
                         </li>
                         <li>
-                            IPD of the delay and sum signal with respect to a reference microphone
+                            Phase differences (IPD) with respect to a reference microphone
                         </li>
                         <li> 
                             A two-layer Bi-LSTM  network
@@ -336,13 +334,13 @@
                         </div>
                         <div class='col'>
                             <center>
-                                After delay and sum beamforming
+                                After delay-and-sum beamforming
                             </center>
                             <img src="fig/se/phase_diff_after_ds_noise.png" alt="" width="150%"/>
                         </div>
                     </div>
                     <ul>
-                        <li>IPD at time-frequency bins dominated by source is zero after DSB </li>
+                        <li>IPD at time-frequency bins dominated by source is zero after beamforming</li>
                         <li>Gives speech like patterns which are useful for DNN to estimate mask</li>
                         <li>Reduces the dimension from $I \times (I-1)  \times F \rightarrow 2 \times F$ phase features </li>
                         <li>No dependency on the array geometry</li>
@@ -353,7 +351,7 @@
                     <h1>Observations</h1>
                     <ul>
                         <li>Works well if true DOA information is known</li>
-                        <li>Wrong DOA estimates degrades the performance drastically</li>
+                        <li>Wrong DOA estimates degrade the performance drastically</li>
                     </ul>
                     <div class="references" style="float:left;">
                         </br>
@@ -373,7 +371,7 @@
                         Joint training of localization and speech separation network
                         </li>
                         <li>Iteratively estimate sources using deflation strategy</li>
-                        &nbsp&nbsp&nbsp $\rightarrow~~~ $ Remove dominant speaker first and then estimate dormant speaker 
+                        &nbsp&nbsp&nbsp $\rightarrow~~~ $ Remove dominant speaker first and then estimate second speaker 
                     </ul>
                     <div class="references" style="float:left;">
                         <br></br>
@@ -390,10 +388,12 @@
                     <h2>Estimation of the dominant speaker</h2>
                     <img src="fig/se/deflation_step1.svg" width="400%" >
                     <ul>
-                        <li>Localization $\Rightarrow$ Delay-and-sum beamform $\Rightarrow$ Mask estimation</li>
-                        <li> Trained network to estimate either speaker location or output as noise (VAD) </li>
-                        <li>Used ASR alignments from clean data as voice activity information while training</li>
-                        <li>utterance - permutation invariant training criteria used for training DOA network</li>
+                        <li>Localization $\Rightarrow$ delay-and-sum beamforming $\Rightarrow$ Mask estimation</li>
+                        <li> 
+                            Train network to jointly estimate voice activity and speaker location
+                        </li>
+                        <li>Use ASR alignments from clean data as voice activity information while training</li>
+                        <li>Utterance - permutation invariant training criterion used for training DOA network</li>
                         <div class="affirmation" style="margin-top:0.5em; margin-bottom:0.5em;"> 
                         $$ L_j = \frac{1}{N}\sum_k \sum_n \mathbb{I}_{kj}(n)  \log(p(\theta_k(n)))$$
                         $\mathbb{I}_{kj}$ is the Indicator variable of the $j^{th}$ source for the $k^{th}$ angle 
@@ -422,16 +422,18 @@
                     </center>
                     <ul>
                         <li>Remove the dominant speaker from the mixture </li>
-                        <li>Estimate the DOA and mask of the non-dominant speaker</li>
-                        <li>Use data dependent beamformers to extract sources from mask</li>
+                        <li>Estimate the DOA and mask of a second speaker</li>
+                        <li>
+                            Use data-dependent beamformers to extract all sources from the corresponding masks
+                        </li>
                         
                     </ul>
                 </section>
 
                 <section >
                     <h1>Results</h1>
-                    <h2>Speech Separation (in % WER ) </h2>
-                    <div class="affirmation" style="margin-top:-0.2em; margin-bottom:0.5em;"> Baseline (with reverberations) </div>
+                    <h2>WER (%) </h2>
+                    <div class="affirmation" style="margin-top:-0.2em; margin-bottom:0.5em;"> Baseline (with reverberation) </div>
                     <table>
                         <tr>
                             <td>Single <br>Speaker<br></td>
@@ -460,13 +462,17 @@
                         </tr>
                     </table>
                     </br>
-                    <div class="references" style="float:left;">
-                    <ul style="font-size:20px;">
-                    <li>
-                        Yi.L and Mesgarani.N. "Conv-tasnet: Surpassing ideal time–frequency magnitude masking for speech separation." IEEE/ACM transactions on audio, speech, and language processing, 2019
-                    </li>
+                    <ul>
+                        <li>
+                                Reverberated, noisy version of WJS-2MIX was used for train, validation and test
+                        </li>
+                        <li>
+                            4-Microphones with Microsoft Kinect like architecture used to simulate data
+                        </li>
+                        <li>
+                            Real ambient noise from CHiME-5 dataset used
+                        </li>
                     </ul>
-                </div>
                 </section>
 
 
@@ -475,6 +481,7 @@
                     <ul>
                         <li>Speaker location can be used for speech separation </li>
                         <li>A deflation based strategy was proposed to improve robustness of speech separation network</li>
+                        <li> 22% relative improvement in ASR performance was observed using the proposed SLOGD approach</li>
                     </ul>
                 </section>
 
