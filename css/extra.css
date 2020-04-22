@@ -10,3 +10,12 @@
   clear: both;
   display: table;
 }
+
+li{
+  margin: 20px 0;
+}
+ul
+{
+line-height:200%
+}
+

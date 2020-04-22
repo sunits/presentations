@@ -104,7 +104,9 @@ body {
   list-style-type: decimal; }
 
 .reveal ul {
-  list-style-type: disc; }
+  list-style-type: disc; 
+  line-height:130%;
+  }
 
 .reveal ul ul {
   list-style-type: square; }
@@ -489,8 +491,10 @@ body {
   height: 4em; }
 
 .reveal .footer img#bottom {
-  margin-left: -2.7em;
+  margin-left: -2.0em;
   margin-bottom: 0.8em;
+    height: 45%;
+     border-radius: 10%;
   background-color: #ffffff;
   box-shadow: 1px 1px 10px 0px gray; }
 

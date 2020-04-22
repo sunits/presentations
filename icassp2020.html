@@ -25,6 +25,14 @@
     <body>
         <div class="reveal">
             <div class="slides">
+
+                <section>
+                    Warning: This PDF does not preserve the intended formatting. 
+                    <br></br>
+                    Please go to 
+                    <a href="https://sunits.github.io/presentations/icassp2020.html" target="_blank">sunits.github.io/presentations/icassp2020.html</a>
+                    to access the slides
+                </section>
                 <section class="cover" data-background="fig/microphone_back.jpg" data-state="no-title-footer no-progressbar has-dark-background">
 					<h1 style="color:white"> </h1>
                     <h2 id='coverh2'> SLOGD: Speaker LOcation Guided Deflation Approach to Speech Separation  </h2>
@@ -145,7 +153,8 @@
                                 Du, J., Tu, Y. H., Sun, L., Ma, F., Wang, H. K., et. al. (2016). The USTC-iFlytek system for CHiME-5 challenge.  CHiME-5
                             </li>
                         </ul>
-                    </div> </br>
+                    </div> 
+                    <br></br>
                     <li>Implicit use of speaker location : Phase difference between microphone pairs
                     </li>
                     <div class="references" style="float:left; ">
@@ -285,7 +294,7 @@
                 -->
 
                 <section>
-                    <h1>Source separation given localization information, $\theta$</h1>
+                    <h1>Source separation given direction of arrival (DOA), $\theta$</h1>
                     <center>
                     <img src="fig/se/enh_pipeline.svg" alt="" height="80%"></br>
                     </center>
@@ -386,7 +395,10 @@
                 <section>
                     <h1>Speaker LOcalization Guided Deflation (SLOGD) approach</h1>
                     <h2>Estimation of the dominant speaker</h2>
-                    <img src="fig/se/deflation_step1.svg" width="400%" >
+
+                    <center>
+                    <img src="fig/se/deflation_step1_1.svg" style="background-size: 120px 30px;" >
+                    </center>
                     <ul>
                         <li>Localization $\Rightarrow$ delay-and-sum beamforming $\Rightarrow$ Mask estimation</li>
                         <li> 
@@ -394,12 +406,6 @@
                         </li>
                         <li>Use ASR alignments from clean data as voice activity information while training</li>
                         <li>Utterance - permutation invariant training criterion used for training DOA network</li>
-                        <div class="affirmation" style="margin-top:0.5em; margin-bottom:0.5em;"> 
-                        $$ L_j = \frac{1}{N}\sum_k \sum_n \mathbb{I}_{kj}(n)  \log(p(\theta_k(n)))$$
-                        $\mathbb{I}_{kj}$ is the Indicator variable of the $j^{th}$ source for the $k^{th}$ angle 
-                        $$ L = \min_j L_j$$
-
-                        </div>
                     </li>
                     </ul>
 
@@ -432,24 +438,24 @@
 
                 <section >
                     <h1>Results</h1>
-                    <h2>WER (%) </h2>
-                    <div class="affirmation" style="margin-top:-0.2em; margin-bottom:0.5em;"> Baseline (with reverberation) </div>
+                    <h2> <center> WER (%) </center></h2>
+                    <div class="affirmation" style="margin-top:-0.2em; margin-bottom:0.5em;"> Baseline </div>
                     <table>
                         <tr>
-                            <td>Single <br>Speaker<br></td>
-                            <td>Single <br>Speaker + noise<br></td>
-                            <td>2 speakers +<br>noise<br></td>
+                            <td>Single Speaker <br> + Reverb <br></td>
+                            <td>Single Speaker <br> + Reverb + Noise<br></td>
+                            <td>2 speakers <br>+ Reverb + Noise<br></td>
                         </tr>
                         <tr>
                             <td>12.5</td>
                             <td>25.5</td>
                             <td>66.5</td>
                         </tr>
-                    </table> </br></br>
-                    <div class="affirmation" style="margin-top:-0.2em; margin-bottom:0.5em;"> After separation </div>
+                    </table> </br>
+                    <div class="affirmation" style="margin-top:-0.2em; margin-bottom:0.5em;"> After separation (2 speakers +  Reverb + Noise) </div>
                     <table>
                         <tr>
-                            <td>True DOA<br>(Proposed)<br></td>
+                            <td>True DOA</td>
                             <td>Est DOA<br>(with GCC-PHAT)</td>
                             <td>Deflation<br>(Proposed)</td>
                             <td>Conv-Tasnet</td>
@@ -480,7 +486,9 @@
                     <h1>Conclusion: Speech separation</h1>
                     <ul>
                         <li>Speaker location can be used for speech separation </li>
+                        <br></br>
                         <li>A deflation based strategy was proposed to improve robustness of speech separation network</li>
+                        <br></br>
                         <li> 22% relative improvement in ASR performance was observed using the proposed SLOGD approach</li>
                     </ul>
                 </section>
@@ -488,7 +496,9 @@
             </div> 
             <div class='footer'>
                 <img src="figures/logos/inria.svg" alt="Logo" class="logo" id="bottom"/>
+                <!--
                 <div id="middlebox"><h1 style="color:white">Localization guided speech separation</h1></div>
+                -->
             </div>
         </div>
         <script src="lib/js/head.min.js"></script>
