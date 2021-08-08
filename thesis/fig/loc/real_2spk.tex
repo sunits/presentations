@@ -1,0 +1,65 @@
+\documentclass[border=0mm]{standalone}
+\usepackage{graphicx}% http://ctan.org/pkg/graphicx
+%{\fontsize{2.5}{4}\selectfont Supertiny}
+\usepackage{tikz,pgfplots}
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{patterns}
+\usetikzlibrary{decorations.pathmorphing}
+\definecolor{bblack}{HTML}{AAAAAA}
+\definecolor{rred}{HTML}{C0504D}
+\definecolor{bblue}{HTML}{000000}
+\definecolor{bgrey}{HTML}{888888}
+\begin{document}
+
+\begin{tikzpicture}[scale=0.55]
+   \begin{axis}[
+       width  = 0.85*\textwidth,
+       height = 10cm,
+       enlarge x limits=0.09,
+       major x tick style = transparent,                    
+       ybar=0.25cm,
+       bar width=9pt,
+       x = 2.0cm,
+       ymajorgrids = true,
+       symbolic x coords={GCC-PHAT/-2, DNN/-2, GCC-PHAT/-1, DNN/-1, GCC-PHAT/0, DNN/0, GCC-PHAT/0.2, DNN/0.2, GCC-PHAT/1, DNN/1, GCC-PHAT/2, DNN/2},       
+       xtick = data, xticklabel style={text width=1.3cm,align=center},nodes near coords,
+       scaled y ticks = false,
+       legend style={at={(0,1)},anchor=north west}
+   ]
+       \addplot[style={bblue,fill=bblue,mark=none}]
+           coordinates {
+           				(GCC-PHAT/-2, 26.15) (DNN/-2, 25.65) 
+           				(GCC-PHAT/-1, 20.55) (DNN/-1, 17.75) 
+           				(GCC-PHAT/0, 56.6)   (DNN/0, 34.35) 
+           				(GCC-PHAT/0.2, 51.7) (DNN/0.2, 28.5) 
+           				(GCC-PHAT/1, 67.7)   (DNN/1, 48.15) 
+           				(GCC-PHAT/2, 67.5)   (DNN/2, 66.75) 
+                        };
+           
+           \addplot[style={bgrey,fill=bgrey,mark=none},postaction={pattern=north east lines}]          
+           coordinates {
+           				(GCC-PHAT/-2, 16.7) (DNN/-2, 18.1) 
+           				(GCC-PHAT/-1, 7.3)  (DNN/-1, 7.4) 
+           				(GCC-PHAT/0, 32.0)  (DNN/0, 20.3) 
+           				(GCC-PHAT/0.2, 28.1)(DNN/0.2, 19.1) 
+           				(GCC-PHAT/1, 27.7)  (DNN/1, 22.2) 
+           				(GCC-PHAT/2, 54.2)  (DNN/2, 46.8) 
+           };
+           	
+                     \legend{Gross Error (\%), Interference closeness (\%) }
+     \draw [line width=0.5mm,   green] (15,10) -- (15,525) ;
+     \draw [line width=0.5mm,   green] (35,10) -- (35,525) ;
+    \draw [line width=0.5mm,   orange]  (55,10) -- (55,525) ;
+    \draw [line width=0.5mm,   red]  (75,10) -- (75,525) ;
+    \draw [line width=0.5mm,   red]  (95,10) -- (95,525) ;
+    
+    \node[draw] at (5,350) {\begin{tabular}{c} $-2$~m \end{tabular}};    
+    \node[draw] at (25,350) {\begin{tabular}{c} $-1$~m \end{tabular}};    
+    \node[draw] at (43,350) {\begin{tabular}{c} $0$~m \end{tabular}};    
+    \node[draw] at (65,350) {\begin{tabular}{c} $0.2$~m \end{tabular}};    
+    \node[draw] at (83,350) {\begin{tabular}{c} $1$~m \end{tabular}};    
+    \node[draw] at (116,350) {\begin{tabular}{c} $2$~m \end{tabular}};    
+    
+   \end{axis}
+\end{tikzpicture}
+\end{document}

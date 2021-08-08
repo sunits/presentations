@@ -1,0 +1,269 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=0.8, maximum-scale=1.0, user-scalable=no">
+
+        <title>PhD Defense</title>
+
+        <link rel="stylesheet" href="css/reveal.css">
+        <link rel="stylesheet" href="css/theme/lirmm.css">
+        <link rel="stylesheet" href="css/extra.css">
+
+        <!-- Theme used for syntax highlighting of code -->
+        <link rel="stylesheet" href="lib/css/github.css">
+        <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+        <!-- Printing and PDF exports -->
+        <script>
+            var link = document.createElement( 'link' );
+            link.rel = 'stylesheet';
+            link.type = 'text/css';
+            link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+            document.getElementsByTagName( 'head' )[0].appendChild( link );
+        </script>
+    </head>
+    <body>
+        <div class="reveal">
+            <div class="slides">
+
+                <section class="cover" data-background="fig/microphone_back.jpg" data-state="no-title-footer no-progressbar has-dark-background">
+                    <h2 id='coverh2'> Part I: Speaker Localization </h2>
+                </section>
+
+
+                <section>
+                    <h1>Data simulation for localization</h1>
+                    <center>
+                    <img src="fig/loc/rir_simul.svg" width="60%" alt=""/>
+                    </center>
+                </section>
+
+
+                <section>
+                    <h1>Recording real data
+                            <audio controls style="width: 100px;">
+                                <source src="audio/loc/real_data/2_spk_mix.wav"    type="audio/wav">
+                            </audio> 
+                    </h1>
+                    <ul>
+                        <li>
+                            Data was recorded using an array of 4 microphone in French
+                        </li>
+                        <li>
+                            Models retrained using Ester dataset
+                        </li>
+                        </ul>
+                        <center>
+                        <img src="fig/loc/real_data_recording.svg" alt="" width="50%"/>
+                        </center>
+
+                        <div class="references" style="float:left;">
+                        <ul style="font-size:20px;">
+                                Thanks to my awesome colleagues -  Elodie Gauthier, Manuel Pariente, Nicholas Furnon, Nicholas Turpault  -  for helping out with the recording!
+                        </ul>
+                        </div>
+                    </section>
+
+                <section>
+                    <h1>Result on real data - Single speaker </h1>
+                    <table>
+                        <tr>
+                            <th>Distance* </th>
+                            <th> Sample count</th>
+                            <th> GCC-PHAT </th>
+                            <th>CSIPD  no  mask</th>
+                            <th>CSIPD + Est. clean mask</th>
+                        </tr>
+                        <tr>
+                            <td>2.16m</td>
+                            <td>113</td>
+                            <td>08.77 %</td>
+                            <td>08.05 %</td>
+                            <td><b>05.35</b> %</td>
+                        </tr>
+                        <tr>
+                            <td>3.59m</td>
+                            <td>90</td>
+                            <td>23.30 %</td>
+                            <td>18.88 %</td>
+                            <td><b> 14.43</b> %</td>
+                        </tr>
+                        <tr>
+                            <td>3.94m</td>
+                            <td>87</td>
+                            <td>47.19 %</td>
+                            <td>49.43 %</td>
+                            <td><b>35.64</b> %</td>
+                        </tr>
+                        <tr>
+                            <td>4.16m</td>
+                            <td>114</td>
+                            <td>23.65 %</td>
+                            <td>28.00 %</td>
+                            <td><b> 12.26</b> %</td>
+                        </tr>
+                        <tr>
+                            <td>4.65m</td>
+                            <td>51</td>
+                            <td>53.80 %</td>
+                            <td><b>22.04</b> %</td>
+                            <td>25.80 %</td>
+                        </tr>
+                        <tr></tr>
+                    </table>
+                    * Distance between the speaker and the microphone array
+
+                    <br>
+                    </br>
+                    Numbers are the  gross error rates
+                </section>
+
+
+                    <section>
+                        <h1>Result on real data - Two speaker </h1>
+                        <img src="fig/loc/real_2spk.svg" alt="" width="100%"/>
+                        <ul>
+                            <li>
+                                <span style="color:green"> Green Block: </span>Target closer to microphone compared to Interference
+                            </li>
+                            <li>
+                                <span style="color:orange"> Orange Block: </span> Target and Interference are equidistant
+                            </li>
+                            <li>
+                                <span style="color:red"> Red Block: </span>
+                                Target farther to microphone compared to Interference
+                            </li>
+                        </ul>
+                    </section>
+
+
+                <section class="cover" data-background="fig/microphone_back.jpg" data-state="no-title-footer no-progressbar has-dark-background">
+                    <h2 id='coverh2'> Part II: Speech separation</h2>
+                </section>
+
+                <section>
+                    <h1>Conv-Tasnet settings</h1>
+                    <table class="tg">
+                        <thead>
+                            <tr>
+                                <th class="tg-73oq">Parameter</th>
+                                <th class="tg-73oq">Value</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="tg-73oq">Encoder filter count</td>
+                                <td class="tg-73oq">512</td>
+                            </tr>
+                            <tr>
+                                <td class="tg-73oq">Filter length</td>
+                                <td class="tg-73oq">16</td>
+                            </tr>
+                            <tr>
+                                <td class="tg-73oq">Bottleneck channel count</td>
+                                <td class="tg-73oq">128</td>
+                            </tr>
+                            <tr>
+                                <td class="tg-73oq">Number of channels in convolution block</td>
+                                <td class="tg-73oq">512</td>
+                            </tr>
+                            <tr>
+                                <td class="tg-73oq">Kernel size</td>
+                                <td class="tg-73oq">3</td>
+                            </tr>
+                            <tr>
+                                <td class="tg-73oq">Number of convolutional blocks per repeat</td>
+                                <td class="tg-73oq">8</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+
+                <section class="cover" data-background="fig/microphone_back.jpg" data-state="no-title-footer no-progressbar has-dark-background">
+                    <h2 id='coverh2'> 
+                        Part III: 
+                        Explaining Neural Network Predictions 
+                    </h2>
+                </section>
+
+                <section>
+                    <h1>Feature attribution methods </h1>
+                    <h2>Deep SHapley Additive exPlanations (DeepSHAP) </h2>
+                    <h3>Game theory ideas</h3>
+                    <ul>
+                        <li>
+                            Shapley values was designed to distribute payout among the players in a game
+                        </li>
+                        <li>
+                            SHAP looks at every feature dimension as a player in the game 
+                        </li>
+                        &nbsp&nbsp&nbsp $\rightarrow~~~ $ The game being the model predictions
+                    </ul>
+                    <center>
+                        $$
+                        \begin{aligned}
+                        \mathbf{x} &= h_{\mathbf{x}}(\mathbf{x}') \quad \text{with} \quad  \mathbf{x}' = [x'_1,..., x'_D] \quad \text{where}\quad {x_d}' \in \{0,1\}\\
+                        \mathcal{F}(\mathbf{x}) &\approx \phi_0 + \sum_{d} \phi_d x'_d, \quad \phi_d \text{ are the SHAP values}\\
+                        \phi_d &= \sum_{\mathbf{z}'\subset\mathbf{x}'} \frac{|\mathbf{z}'|! (D-|\mathbf{z}'|-1)!}{D!}[\mathcal{F}(h_{\mathbf{x}}(\mathbf{z}')) - \mathcal{F}(h_{\mathbf{x}}(\mathbf{z}'\text{/}d))] \\
+                        \mathcal{F}(h_{\mathbf{x}}(\mathbf{z}')) &\approx  \mathbb{E}[\mathcal{F}(z)|z_S], \quad \text{where} \quad S \text{ is the set of non-zero indexes}
+                        \end{aligned}
+                        $$
+                    </center>
+                    <div class="references" style="float:left; ">
+                        <ul >
+                            <li>
+                                Lundberg, S. M. and Lee, S.-I.  "A unified approach to interpreting model predictions" In Advances in Neural Information Processing Systems, 2017
+                            </li>
+                        </ul>
+                    </div>
+                    <h3>Other methods were shown to be a special case of SHAP </h3>
+                </section>
+
+
+                <section>
+                    <h2>DeepSHAP per frame</h2>
+                    
+                    <center>
+                        <video class="center" width='70%', loop controls  autoplay poster="fig/interpret/020.svg" >
+                            <source data-src="fig/interpret/shap_vid.webm" type="video/webm" />
+                            </video>
+                    </center>
+                </section>
+
+            </div> 
+            <div class='footer'>
+                <img src="figures/logos/inria.png" alt="Logo" class="logo" id="bottom"/>
+                <div id="middlebox"><h1 style="color:white">Localization guided speech separation</h1></div>
+            </div>
+        </div>
+        <script src="lib/js/head.min.js"></script>
+        <script src="js/reveal.js"></script>
+        <script type="text/javascript" src="js/draw.viewer.min.js"></script>
+
+        <script>
+            // More info about config & dependencies:
+            // - https://github.com/hakimel/reveal.js#configuration
+            // - https://github.com/hakimel/reveal.js#dependencies
+        Reveal.initialize({
+            controls: false,
+            progress: true,
+            history: true,
+            center: false,
+            slideNumber: true,
+            minScale: 0.1,
+            maxScale: 5,
+            transition: 'none', //
+
+            dependencies: [
+            { src: 'plugin/chart/Chart.min.js' },               
+            { src: 'plugin/chart/csv2chart.js' },
+            { src: 'plugin/markdown/marked.js' },
+            { src: 'plugin/markdown/markdown.js' },
+            { src: 'plugin/notes/notes.js', async: true },
+            { src: 'plugin/math-katex/math-katex.js', async: true },
+            { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+            ]
+        });
+        </script>
+    </body>
+</html>

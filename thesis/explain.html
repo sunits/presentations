@@ -1,0 +1,477 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=0.8, maximum-scale=1.0, user-scalable=no">
+
+
+        <link rel="stylesheet" href="css/reveal.css">
+        <link rel="stylesheet" href="css/theme/lirmm.css">
+        <link rel="stylesheet" href="css/extra.css">
+
+        <!-- Theme used for syntax highlighting of code -->
+        <link rel="stylesheet" href="lib/css/github.css">
+        <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+        <!-- Printing and PDF exports -->
+        <script>
+            var link = document.createElement( 'link' );
+            link.rel = 'stylesheet';
+            link.type = 'text/css';
+            link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+            document.getElementsByTagName( 'head' )[0].appendChild( link );
+        </script>
+    </head>
+    <body>
+        <div class="reveal">
+            <div class="slides">
+                <section class="cover" data-background="fig/microphone_back.jpg" data-state="no-title-footer no-progressbar has-dark-background">
+                    <h1></h1>
+                    <h2 id='coverh2' style="background-color:#FFFFFF;color:#E63312" > 
+                        Explaining deep learning models for speech enhancement
+                    </h2>
+
+                </section>
+
+
+                <section>
+                    <h1>Motivation</h1>
+                    <ul>
+                        <li>Neural networks are black boxes</li>
+                        &nbsp&nbsp&nbsp $\rightarrow~~~ $  Gives impressive performances in multiple tasks
+                        </br>
+                        &nbsp&nbsp&nbsp $\rightarrow~~~ $ Hard to understand reasons for network output
+                        <li> Different ASR results with enhancement models trained using different noises 
+                        </li>
+                        &nbsp&nbsp&nbsp $\rightarrow~~~ $ 
+                            On CHiME-4 real evaluation dataset
+                        </br>
+                        &nbsp&nbsp&nbsp $\rightarrow~~~ $ 
+                        How does noise influence the network?
+                        </br>
+                        &nbsp&nbsp&nbsp $\rightarrow~~~ $ 
+                            Explain the generalization capability of speech enhancement models 
+                    </ul>
+                </section>
+
+                <section>
+                    <h1>Feature attribution methods</h1>
+                            <ul>
+                                <li>Assign importance to each dimension of the input</li>
+                                <li>
+                                    For image classification tasks, show which pixels a DNN is looking at
+                                </li>
+                            </ul>
+                            <br></br>
+                            <center>
+                                <img src="fig/interpret/interpret_comparison.png"  alt="" width="25%"></br>
+                            </center>
+                </section>
+                <section>
+                    <h1>Feature attribution methods </h1>
+                    <h2>
+                        Gradient-based 
+                    </h2>
+                    Gradient of the output with respect to the input
+                    </br>
+                    <ul>
+                        <li>
+                    Saliency map 
+                        </li>
+                        <li>
+                    Smooth Grads
+                        </li>
+                    </ul>
+
+                    <h2>
+                        Gradients $\times$ Input
+                    </h2>
+                    Leverage the magnitude and sign of input along with gradients
+                    </br>
+
+                    <ul>
+                        <li>
+                    Integrated Gradients 
+                        </li>
+                        <li>
+                    Layerwise relevance propagation
+                        </li>
+                        <li>
+                    DeepLift
+                        </li>
+                        <li>
+                    Deep SHapley Additive Explanations (DeepSHAP)
+                        </li>
+                    </ul>
+                </section>
+
+
+
+                <section class="cover" data-background="fig/microphone_back.jpg" data-state="no-title-footer no-progressbar has-dark-background">
+                    <h2 id='coverh2'> Deep LIFT </h2>
+                </section>
+
+                <section>
+                    <ul>
+                        <li>Problems with using gradients only</li>
+                        <center>
+                        <img src="fig/interpret/deep_lift_saturation.png" alt="" width="50%">
+                        </center>
+
+                        <li> input $\times$ gradients gives discontinuity </li>
+
+                    </ul>
+                    
+                </section>
+
+                <section>
+                    <h1>Deep LIFT philosophy</h1>
+                    <ul>
+                        <li>
+                            DeepLIFT explains the difference in output from some ‘reference’ output in terms of the difference of the input from some ‘reference’ input
+                    </li>
+                        <center>
+                        <img src="fig/interpret/deep_lift_diff_from_reference.png" alt="" width="50%">
+                        </center>
+                        <li> Helps to avoid discontinuity while computing the feature attribution</li>
+                        <br>
+                        At $x = 10 + \epsilon$,  input $\times$ gradients gives a value of 10 
+                        compared to $\epsilon$ for DeepLIFT.
+
+                </ul>
+                </section>
+
+                <section>
+                    <h1>Applying DeepLIFT philosophy to DNNs</h1>
+                    <ul>
+                        <li>
+                            Create a multiplier $m_{\Delta x \Delta y} = \frac{C_{\Delta x \Delta y}}{\Delta x}$, where $C_{\Delta x \Delta y}$ is the contribution of $\Delta x$ on $\Delta y$
+                        </li>
+                        <li>Chain rule can be used to "backpropagate" the contribution</li>
+                        <li>Defining reference can be tricky. Grey image or all zero image for example </li>
+                        <li> DeepLIFT separates negative and positive contributions  and back propagates them separately </li>
+                        <li>Multiple rules defined to handle different non-linearities and network architectures.</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h1>
+                        Comparison  of different feature attribution methods
+                    </h1>
+                    <center>
+                    <img src="fig/interpret/interpret_comparison.svg" alt="">
+                    </center>
+                </section>
+
+                <section class="cover" data-background="fig/microphone_back.jpg" data-state="no-title-footer no-progressbar has-dark-background">
+                    <h2 id='coverh2'> Deep SHAP </h2>
+                </section>
+
+                <section>
+                    <center>
+                    <img src="fig/interpret/shap_game_theory.png" alt="" width="80%">
+                    </center>
+                    <div class="references" style="float:left; ">
+                        <ul>
+                            <li>
+                                Slide credit: Prof. Suresh Venkatasubramanian @University of Utah
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+                <section>
+                    <center>
+                    <img src="fig/interpret/shap_game_theory_feats.png" alt="" width="80%">
+                    </center>
+                    <div class="references" style="float:left; ">
+                        <ul>
+                            <li>
+                                Slide credit: Prof. Suresh Venkatasubramanian @University of Utah
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section>
+                    <h1>Obtaining SHAP values using Deep LIFT</h1>
+                    <ul>
+
+                            <li>
+                            Shapely values measure the average marginal effect of including an input over all possible orderings in which inputs can be included. 
+                            </li>
+                            <li>
+                            DeepLIFT is a fast approximation of the Shapely values
+                            </li>
+                        <li>Compute SHAP values for smaller components of the network and recurssively pass DeepLIFTs multipliers - a function of obtained SHAP values - till the input </li>
+
+                    </ul>
+                </section>
+
+                <section class="cover" data-background="fig/microphone_back.jpg" data-state="no-title-footer no-progressbar has-dark-background">
+                    <h2 id='coverh2'> Using SHAP values for speech enhancement models </h2>
+                </section>
+
+                <section>
+                    <h1> Look ahead 
+                    </h1>
+                    <ul>
+                        <li>
+                        Use DeepSHAP to provide importance values for each time-frequency bin
+                        </li>
+                        <li>DeepSHAP for regression instead of classification</li>
+                        <li>
+                            Overcoming subjective evaluation:
+                            <ul>
+                             Derive an objective scalar metric called  speech relevance score  to quantify feature attributions
+                            </ul>
+                        </li>
+                        <li>
+                            Use speech relevance score to explain generalization of speech enhancement models
+                        </li>
+                    </ul>
+                    
+                </section>
+
+                <section>
+                    <h1>Computing SHAP values for speech enhancement models</h1>
+                    <center>
+                        $$\mathbf{x}(t) = \mathbf{c}_1(t) + \text{noise} $$
+                        $\hat{\mathcal{M}} = \mathcal{F}(|\mathbf{X}_1|)$, $\hat{\mathcal{M}}$: estimated mask, $\mathcal{F}$: model and $\mathbf{X}_1$: STFT of $x_1(t)$ 
+                    </center>
+                    <ul>
+
+                        <li>
+                            For every $\hat{\mathcal{M}}(n,f)$ compute attributions,$\mathbf{\Phi}^{\text{TF}}(n,f)$, for
+                            $|x_1(n',f')| \quad \forall n',f'$ </li>
+                        <li>Reduce the number of attributions by computing:
+                            $
+                            \mathbf{\Phi}^{\text{T}}(n) = \sum_f \mathbf{\Phi}^{\text{TF}}(n,f)
+                            $
+                        </li>
+                    </ul>
+
+                    <center>
+                        <img src="fig/interpret/020.svg" alt="" width="70%">
+                        </center>
+
+                    </section>
+
+                    <section>
+                        <img src="fig/interpret/tf_t_seq.svg" alt="">
+                        <h3>
+                        From left to right
+                        </h3>
+                        <ul>
+                            <li>
+                                Input spectrogram after mean and variance normalization,
+                            </li>
+                            <li>
+                                Time-frequency SHAP map $\mathbf{\Phi}^{\text{TF}}(n,f)$ for $n = 36$ and $f = 1635$ Hz,
+                            </li>
+                            <li>
+                                The time SHAP map $\mathbf{\Phi}^{\text{T}}(n)$ for $n = 36$
+                            </li>
+                            <li>
+                                The utterance SHAP map $\mathbf{\Phi}^{\text{U}}$
+                            </li>
+                        </ul>
+                    
+                    </section>
+
+                    <section>
+
+                        <center>
+                        <video class="center" width='90%', loop controls  poster="fig/interpret/020.svg" >
+                            <source data-src="fig/interpret/shap_vid.webm" type="video/webm" />
+                            </video>
+                        </center>
+                    </section>
+
+                    <section>
+                        <h1> Speech relevance score
+                        </h1>
+                        <center>
+                            <h3>
+                                Generalizable model should make decisions based on speech and not noise bins</li>
+                        </h3>
+                        <div class="affirmation" style="margin-top:-.5em; margin-bottom:.5em;"> 
+                            </br>
+                            $$
+                            \begin{aligned}
+                            \eta &= \frac{\sum_{n\in\text{speech}}\#\{\mathbf{\Phi}_{>T\text{+IBM}}(n)\}}{\sum_{n\in\text{speech}}\#\{\mathbf{\Phi}_{>T}(n)\}} \\
+                            \text{IBM} &\rightarrow \text{Ideal binary mask}
+                            \end{aligned}
+                            $$
+                        </div>
+                        <img src="fig/interpret/srm.svg" alt="", width="70%">
+                    </center>
+
+                </section>
+
+                <section>
+                    <h1>Experimental setup</h1>
+
+                    <div>
+                            <h2>Noises</h2>
+                            <ul>
+                                <li>
+                                    CHiME: Noise from CHiME-4 dataset (CHIME)
+                                </li>
+                                <li>
+                                    Speech-shaped noise (SSN) 
+                                </li>
+                                <li>
+                                    Network Sound Effects (NET_SOUND)
+                                </li>
+                            </ul>
+                    </div>
+                    <div class="references" style="float:left; ">
+                        <ul>
+                            <li>
+                                https://www.sound-ideas.com/Product/199/Network-Sound-Effects-Library
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div>
+                            <h2> <br> <br> Speech enhancement model</h2>
+                            <ul>
+                                <li>2 Layers of Bi-LSTM </li>
+                                <li>Speech from simulated part of CHiME-4 </li>
+                                <li>Trained to output a mask</li>
+                            </ul>
+                    </div>
+
+                </section>
+
+                <section>
+                    <h1>Results: Speech relevance scores</h1>
+                    <h2>Speech relevance scores on simulated dev set of CHiME-4  </h2>
+                    <table>
+                        <tr>
+                            <td style="border-bottom: 5px solid;">Speech enhancement model</td>
+                            <td style="border-bottom: 5px solid;">$\mathcal{F}_\text{CHIME}$</td>
+                            <td style="border-bottom: 5px solid;">$\mathcal{F}_\text{SSN}$</td>
+                            <td style="border-bottom: 5px solid;">$\mathcal{F}_\text{NET\_SOUND}$</td>
+                        </tr>
+                        <tr>
+                            <td>WER Real test set (%)</td>
+                            <td><span style="color:red"><b>11.7</b></span></td>
+                            <td>14.0</td>
+                            <td>15.1</td>
+                        </tr>
+                        <tr>
+                            <td>WER Simulated dev set (%)</td>
+                            <td>6.7</td>
+                            <td>7.3</td>
+                            <td>7.7</td>
+                        </tr>
+                        <tr>
+                            <td>Speech relevance score,$\eta$ (%)</td>
+                            <td><span style="color:red"><b>94.8</b></span></td>
+                            <td>89.6</td>
+                            <td>90.3</td>
+                        </tr>
+                        <tr></tr>
+                    </table>
+                    <br></br>
+
+                    <ul>
+                        <li>Baseline WER without enhancement on real test: 25.9%</li>
+                        <li>Better performance of $\mathcal{F}_\text{CHIME}$ is due to better $\eta$ value</li>
+                        <li> WER and $\eta$ for $\mathcal{F}_\text{SSN}$ and $\mathcal{F}_\text{NET\_SOUND}$ are similar</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h1> Results: Generalization capability</h1>
+                    <h2>Experiment</h2>
+                        &nbsp&nbsp&nbsp $\rightarrow~~~ $ <span style="font-weight:bold">Train: </span> Train speech set + matched noise  | <span style="font-weight:bold"> Test: </span> Train speech set + CHiME noise
+                        </br>
+                        &nbsp&nbsp&nbsp $\rightarrow~~~ $ Train and Test have same speech signals but different noises
+
+                    <h2>Speech relevance scores (%)</h2>
+                    <table>
+                        <tr>
+                            <td style="border-bottom: 5px solid;">Speech enhancement model</td>
+                            <td style="border-bottom: 5px solid;">$\mathcal{F}_\text{SSN}$</td>
+                            <td style="border-bottom: 5px solid;">$\mathcal{F}_\text{NET\_SOUND}$</td>
+                            <td style="border-bottom: 5px solid;">$\mathcal{F}_\text{CHIME}$</td>
+                        </tr>
+                        <tr>
+                            <td>Train [Clean speech + matched noise]</td>
+                            <td>86.2</td>
+                            <td>81.7</td>
+                            <td>81.7</td>
+                        </tr>
+                        <tr>
+                            <td>Test  [Clean speech + CHIME noise]</td>
+                            <td>77.0</td>
+                            <td>68.3</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>Difference</td>
+                            <td><span style="color:red"><b>10.7</b></span></td>
+                            <td>16.4</td>
+                            <td>-</td>
+                        </tr>
+                        <tr></tr>
+                    </table>
+                    <br></br>
+                    <ul>
+                        <!--
+                        <li> Speech relevance score is higher in the train setup for both models </li>
+                        <li> In test setup, the speech relevance score drops drastically for $\mathcal{F}_\text{NETWORK}$ </li>
+                            -->
+                        <li>
+                            $\mathcal{F}_\text{SSN}$ has better generalization capability than $\mathcal{F}_\text{NET\_SOUND}$
+                        </li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h1>Conclusion</h1>
+                    
+                    <ul>
+                        <li> Methods to explain the inner working of DNN-based speech enhancement models </li>
+                        <li>Feature attribution method called DeepSHAP was used </li>
+                        <li>Proposed metric to evaluate feature attribution </li>
+                        <li>
+                        Low speech relevance score difference of 10.7% with SSN noise compared to 16.4% with Network noise shows better generalization of $\mathcal{F}_\text{SSN}$
+                        </li>
+                    </ul>
+
+                </section>
+            </div> 
+        </div>
+        <script src="lib/js/head.min.js"></script>
+        <script src="js/reveal.js"></script>
+        <script type="text/javascript" src="js/draw.viewer.min.js"></script>
+
+        <script>
+            // More info about config & dependencies:
+            // - https://github.com/hakimel/reveal.js#configuration
+            // - https://github.com/hakimel/reveal.js#dependencies
+        Reveal.initialize({
+            controls: false,
+            progress: true,
+            history: true,
+            center: false,
+            slideNumber: true,
+            minScale: 0.1,
+            maxScale: 5,
+            transition: 'none', //
+
+            dependencies: [
+            { src: 'plugin/chart/Chart.min.js' },               
+            { src: 'plugin/chart/csv2chart.js' },
+            { src: 'plugin/markdown/marked.js' },
+            { src: 'plugin/markdown/markdown.js' },
+            { src: 'plugin/notes/notes.js', async: true },
+            { src: 'plugin/math-katex/math-katex.js', async: true },
+            { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+            ]
+        });
+        </script>
+    </body>
+</html>

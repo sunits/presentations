@@ -1,0 +1,193 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=0.8, maximum-scale=1.0, user-scalable=no">
+
+		<title>PhD Defense</title>
+
+        <link rel="stylesheet" href="css/reveal.css">
+        <link rel="stylesheet" href="css/theme/lirmm.css">
+        <link rel="stylesheet" href="css/extra.css">
+
+        <!-- Theme used for syntax highlighting of code -->
+        <link rel="stylesheet" href="lib/css/github.css">
+        <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+        <!-- Printing and PDF exports -->
+        <script>
+            var link = document.createElement( 'link' );
+            link.rel = 'stylesheet';
+            link.type = 'text/css';
+            link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+            document.getElementsByTagName( 'head' )[0].appendChild( link );
+        </script>
+    </head>
+
+    <body>
+        <div class="reveal">
+            <div class="slides">
+                <section class="cover" data-background="fig/microphone_back.jpg" data-state="no-title-footer no-progressbar has-dark-background">
+                    <h1></h1>
+                    <h2 id='coverh2' style="background-color:#FFFFFF;color:#E63312" >
+                        Analyzing the impact of speaker localization errors on speech
+                        separation for automatic speech recognition
+                    </h2>
+                    <center>
+                    <img src="figures/logos/inria.png" id="inria" style="background-color:#0F0E0F;" class="logo" alt="">
+                    </center>
+                            <p id='coversupervisors', style="font-size:28px; color:#E63312"> 
+                                Sunit Sivasankaran, Emmanuel Vincent, Dominique Fohr <br/>
+                            </p>
+					<p style="font-size:25px;">
+                    EUSIPCO 2020 <br>
+					04 September, 2020
+					</p>
+                </section>
+
+                <section>
+                    <h1>Problem overview</h1>
+                    <div class='multiCol'>
+                        <div class='col'>
+                            <!--
+                            <img src="fig/intro/home.png" alt="" width="90%">
+                            -->
+                            <img src="fig/intro/home_imgs/home.png" alt="" width="100%">
+                            <h3>
+                                Mixture
+                                <audio controls style="width: 50px;">
+                                    <source src="audio/intro_audio/rev.wav"    type="audio/wav">
+                                </audio> 
+                                &nbsp&nbsp
+                                Target
+                                <audio controls style="width: 50px;">
+                                    <source src="fig/intro/target.wav"    type="audio/wav">
+                                </audio> 
+                            </h3>
+
+                                    <div class="references" style="float:left; ">
+                                    <ul style="font-size:20px;">
+                                            <li>
+                                                Stick figures credit: www.xkcd.com
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                         <div class='col'>
+                            <div class="affirmation" style="margin-top:-0.2em; margin-bottom:0.5em;"> Distant-microphone voice command</div>
+                                    <ul>
+                                        <li>Three main adversaries
+                                        </li>
+                                            &nbsp&nbsp&nbsp $\rightarrow~~~ $ <span >Reverberation</span>  <br/>
+                                            &nbsp&nbsp&nbsp $\rightarrow~~~ $ <span >Noise</span>  <br/>
+                                            &nbsp&nbsp&nbsp $\rightarrow~~~ $ <span >Interfering speech</span>  <br/>
+                                        <li> Impact automatic speech recognition (ASR) performance </li>
+                                        <li>Multiple evaluation campaigns </li>
+                                        &nbsp&nbsp&nbsp $\rightarrow~~~ $ REVERB, CHiME series
+                            <!--
+                                        <li>Goal: Recover target speech by estimating $\theta$ using neural networks</li>
+                                Mixture
+                                <audio controls style="width: 100px;">
+                                    <source src="fig/intro/mix.wav"    type="audio/wav">
+                                </audio> 
+                                 &nbsp&nbsp
+                                    Target
+                                <audio controls style="width: 100px;">
+                                        <source src="fig/intro/target.wav"    type="audio/wav">
+                                </audio> 
+                                            &nbsp&nbsp&nbsp $\rightarrow~~~ $ <span >REVERB (Reverberation)</span>  <br/>
+                                            &nbsp&nbsp&nbsp $\rightarrow~~~ $ <span >CHiME 1-4 (Reverb+Noise)</span>  <br/>
+                                            &nbsp&nbsp&nbsp $\rightarrow~~~ $ <span >CHiME 5,6 (Cocktail party)</span>  <br/>
+                             -->
+                                    </ul>
+                         </div>
+                     </div>
+                </section>
+
+                <section>
+                </section>
+
+
+
+                <section>
+                    <h1>Approaches to speech separation</h1>
+                    <ul>
+                        <li>Single-channel approaches</li>
+                        &nbsp&nbsp&nbsp $\rightarrow~~~ $ Non-negative matrix factorization
+                        </br>
+                        &nbsp&nbsp&nbsp $\rightarrow~~~ $  DNN-based methods in time-frequency domain 
+                        <div class="references" style="float:left;font-size:20px;">
+                            <ul >
+                                <li>
+                                    Hershey, J. R., Chen, Z., Le Roux, J., and Watanabe, S. (2016). Deep clustering: Discriminative embeddings for segmentation and separation. In ICASSP
+                                </li>
+                            </ul>
+                        </div>
+                        </br>
+                        &nbsp&nbsp&nbsp $\rightarrow~~~ $   DNN-based methods from raw waveform 
+                        <div class="references" style="float:left;font-size:20px;">
+                            <ul>
+                                <li>
+                                    Luo, Y. and Mesgarani, N. (2019). Conv-TasNet: Surpassing ideal time-frequency magnitude masking for speech separation. TASLP
+                                </li>
+                            </ul>
+                        </div>
+                        <br></br>
+                        </br>
+                        <li> Multichannel speech separation</li>
+                        &nbsp&nbsp&nbsp $\rightarrow~~~ $ Mask-based beamformers
+                        </br>
+                        &nbsp&nbsp&nbsp $\rightarrow~~~ $ Using phase difference along with magnitude spectra with deep clustering
+                        </br>
+                        &nbsp&nbsp&nbsp $\rightarrow~~~ $ 
+                                Explicit use of speaker location : TDOA/DOA 
+                                <div class="references" style="float:left;font-size:20px; "> 
+                                    <ul>
+                                        <li>
+                                            Perotin, L., Serizel, R., Vincent, E., and Guérin, A. (2018). Multichannel speech separation with recurrent neural networks from high-order ambisonics recordings. In ICASSP
+                                        </li>
+                                        <li>
+                                            Chen, Z., Xiao, X., Yoshioka, T., Erdogan, H., Li, J., and Gong, Y. (2018). Multi-Channel overlapped speech recognition with location guided speech extraction network. In SLT
+                                        </li>
+                                    </ul>
+                                </div>
+                            </ul>
+                        </section>
+
+
+            </div> 
+            <div class='footer'>
+                <img src="figures/logos/inria.png" alt="Logo" class="logo" id="bottom"/>
+                <div id="middlebox"><h1 style="color:white">EUSIPCO 2020</h1></div>
+            </div>
+        </div>
+        <script src="lib/js/head.min.js"></script>
+        <script src="js/reveal.js"></script>
+        <script type="text/javascript" src="js/draw.viewer.min.js"></script>
+
+        <script>
+            // More info about config & dependencies:
+            // - https://github.com/hakimel/reveal.js#configuration
+            // - https://github.com/hakimel/reveal.js#dependencies
+        Reveal.initialize({
+            controls: false,
+            progress: true,
+            history: true,
+            center: false,
+            slideNumber: true,
+            minScale: 0.1,
+            maxScale: 5,
+            transition: 'none', //
+
+            dependencies: [
+            { src: 'plugin/chart/Chart.min.js' },               
+            { src: 'plugin/chart/csv2chart.js' },
+            { src: 'plugin/markdown/marked.js' },
+            { src: 'plugin/markdown/markdown.js' },
+            { src: 'plugin/notes/notes.js', async: true },
+            { src: 'plugin/math-katex/math-katex.js', async: true },
+            { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+            ]
+        });
+        </script>
+    </body>
+</html>

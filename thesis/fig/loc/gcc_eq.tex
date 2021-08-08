@@ -1,0 +1,10 @@
+%\documentclass[border=0mm]{standalone}
+\documentclass[tikz,convert={outfile=\jobname.svg}]{standalone}
+\usepackage{mathrsfs}
+\usepackage{amssymb,amsmath,amsthm}
+
+\begin{document}
+\begin{align*}
+                    \rho_{ii'}(n,k) &= \sum_{f=0}^{F/2} \text{Re}\Bigg\{\frac{x_i(n,f) x_{i'}^*(n,f)}{|x_{i}(n,f)||x_{i'}(n,f)|} e^{j2\pi fk/F}\Bigg\}
+\end{align*}
+\end{document}

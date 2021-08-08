@@ -1,0 +1,64 @@
+I-A  Introduction au traitement du signal
+
+Slide 1 : Définition signal
+Slide 2: Signal déterministe et aléatoire
+Slide 3: Représentation temps-fréquence ou temporelle
+Slide 4: Représentation via des processus stochastiques
+
+I-B Traitement du signal audio: processus alpha-stable scalaires
+
+Slide 5: Distribution alpha-stable 
+Slide 6: Processus alpha-harmonisable
+Slide 7: Premier exemple: processus gaussien au sens large
+Slide 8: Mélange et séparation de processus gaussien
+Slide 9: Estimation des paramètres : Cas Gaussien
+Slide 10: Deuxième exemple: processus de Cauchy
+Slide 11: Mélange et séparation de processus de Cauchy
+Slide 12: Estimation des paramètres : Cas Cauchy
+Slide 13: Processus alpha-harmonisable
+Slide 14: Mélange et séparation de processus alpha-harmonisable
+Slide 15: Estimation des paramètres: méthodes MCMC & FLOM
+Slide 16: Application des processus-alpha stable pour le traitement du signal
+
+II Mélanges discrets et application à la localisation de sources audio
+Slide 17: Position du problème
+Slide 18: Modèle de mélange linéaire alpha-stable
+Slide 19: Exposant de Levy
+Slide 20: Ajout d'un modèle acoustique 
+Slide 21: Estimation des paramètres
+Slide 22, 23: Résultats, Conclusion
+
+III Filtrage de processus alpha-stable vectoriels
+Slide 24: Représentation spatiale
+Slide 25: Estimation directe du spectre spatial
+Slide 26: Filtrage multicanal alpha-stable
+Slide 27: Modèle de filtrage linéaire multicanal alpha-stable
+Slide 28: Suite Slide 27
+Slide 29: Cas limite (alpha -> 2)
+Slide 30: Experience 1 : "Sensitivité spatiale angulaire"
+Slide 31: Experience 2 : "Nombres de composants J"
+Slide 32: Experience 3 : "Complexité du modèle spatial"
+Slide 33: Conclusion
+
+IV Modèles hybrides et applications au réhaussement de la parole
+IV - A : Cas monocanal
+
+Slide 34 : Motivations
+Slide 35 : Distributions à contour elliptique stable 
+Slide 36 : Conditionnellement Gaussien
+Slide 37 : Modèle de mélange multi-alpha
+Slide 38 : Estimation des variables impulsionnelles
+Slide 39 : Estimation des paramètres d'échelle
+Slide 40 : Résultats
+
+IV - B : Cas multicanal
+Slide 41 : Modèle hybride : Gaussien + Sous-Gaussien
+Slide 42 : Modèle de Filtrage
+Slide 43 : Estimation des paramètres Gaussien
+Slide 44 : Estimation des paramètres alpha-stables
+Slide 45 : Résultats
+Slide 46 : Conclusion
+
+V - Conclusions et travaux 
+Slide 47 : Conclusion
+Slide 48 : Travaux futurs 

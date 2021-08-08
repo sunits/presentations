@@ -1,0 +1,1 @@
+ffmpeg -loop 1 -y -i /home/ssivasan/Dropbox/sunit_inria/phd/thesis/SunitThesis/presentation/fig/intro/ds_true_mask.png -i 011a0101_2.3024_20cc0105_-2.3024.wav.s1_directx4.wav -shortest -acodec libvorbis -vcodec libvpx /tmp/direct.webm 

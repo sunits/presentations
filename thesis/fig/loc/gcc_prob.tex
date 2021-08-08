@@ -1,0 +1,22 @@
+%\documentclass[border=0mm]{standalone}
+\documentclass[tikz,convert={outfile=\jobname.svg}]{standalone}
+\usepackage{mathrsfs}
+\usepackage{amssymb,amsmath,amsthm}
+
+\begin{document}
+\begin{align*}
+    \boldsymbol{\rho}_{ii'}(n) &=  \mathbf{\Xi} \times \textbf{CSIPD}(n)
+\end{align*}
+\[
+\mathbf{\Xi} = \begin{bmatrix}
+    1 & 0 & \cdots & \cos(2\pi k_\text{min}\frac{f}{F}) & -\sin(2\pi k_\text{min}\frac{f}{F}) & \cdots & \cos(\pi k_\text{min}) & -\sin(\pi k_\text{min})\\
+    \vdots & \vdots & & \vdots & \vdots & & \vdots & \vdots\\
+    1 & 0 & \cdots & \cos(2\pi k_\text{max}\frac{f}{F}) & -\sin(2\pi k_\text{max}\frac{f}{F}) & \cdots &  \cos(\pi k_\text{max}) & -\sin(\pi k_\text{max})\\
+\end{bmatrix}
+\]
+\begin{align*}
+    \mathbf{CSIPD}(n) & =\biggl[\cos\phi_{ii'}(n,0), \sin\phi_{ii'}(n,0),...,\cos\phi_{ii'}\biggl(n,\frac{F}{2}\biggr), \sin\phi_{ii'}\biggl(n,\frac{F}{2}\biggr)\biggr]^T  \\
+    \phi_{ii'}(n,f) &= \angle{x_i(n,f)} - \angle{x_{i'}(n,f)} 
+\end{align*}
+\end{document}
+

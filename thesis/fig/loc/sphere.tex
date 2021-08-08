@@ -1,0 +1,49 @@
+%\documentclass[border=0mm]{standalone}
+\documentclass[tikz,convert={outfile=\jobname.svg}]{standalone}
+\usepackage{graphicx}% http://ctan.org/pkg/graphicx
+%{\fontsize{2.5}{4}\selectfont Supertiny}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta}
+
+\begin{document}
+\begin{tikzpicture}
+    %\shade[cube color = gray!40, opacity = 0.4] (0,0) circle (2cm);
+
+    %\fill [gray!40] (-2,-2) rectangle (2,2);
+    \shade[color=gray!40, opacity=0.4] (-2,-2) rectangle (2,2);
+
+    %\draw (0,0) circle (2cm);
+    \draw (-2,0) arc (180:360:2 and 0.6);
+    \draw[] (2,0) arc (0:180:2 and 0.6);
+    %\draw[-{Latex[length=0.7mm, width=0.5mm]}] (1.5,0.40) arc (0:32:0.80 and 1.40); 
+    \fill[fill=black] (0,0) circle (1pt);
+    \draw[-{Latex[length=0.7mm, width=1.0mm]}] (0,0 ) -- node[above]{} (1.4,1.1); % mic mid to source line
+    %\draw[dashed] (0,0 ) -- node[above]{} (1.5,0.41); % array mid point to \psi 
+    \draw (1.4,1.1) circle (0.05cm); % Source position
+    \node[above] at (1.2,1.0) {\tiny{$s_j$}};
+    %\node[above] at (1.38,0.5) {\scalebox{.6}{$\psi_j$}};
+    %\node[] at (1.7,0.19) {\scalebox{.6}{$\alpha_j$}};
+    \draw[dashed] (-2,0 ) -- node[above]{ }(2,0); % sphere diameter
+
+    %\draw[-{Latex[length=0.7mm, width=0.5mm]}] (2,0) arc (0:43:2 and 0.6); % alpha angle
+    %\draw[thick,-{Latex[length=0.7mm, width=0.9mm]}] (0,0 ) -- node[below]{} (1.0,0.78); % k vector line
+    %\node[] at (0.21,0.3){\scalebox{.4}{$\mathbf{k_j}$}} ;
+
+    % microphone
+    \draw[double distance = 0.02cm,line cap=round] (-0.5,0) -- (0.5,0);
+    \node[below] at (-0.5,0) {\tiny $i$};
+    %\draw[] (-0.5,0 ) -- node[above]{\scalebox{.6}{$r_{ij}$}} (1.4,1.1);
+    %\draw[] (0.5,0 ) -- node[below]{\scalebox{.6}{$r_{i'j}$}}(1.4,1.1);
+    \node[below] at (0.5,0) {\tiny $i'$};
+    %\draw[arrows={latex-latex},dashed] (-0.5,-0.07) -- node[below]{\scalebox{.4}{$\ell_{ii'}$}} (0.5,-0.07);
+
+    % \theta
+    \draw[-{Latex[length=0.7mm, width=0.5mm]}] (2.0,0) arc (0:52:1.66 and 1.45); 
+    \node[] at (1.87,0.99) {\scalebox{.6}{$\theta_j$}};
+
+    \node[inner sep=0pt] (russell) at (-0.5,0)
+    {\scalebox{0.038}{\includegraphics[width=.25\textwidth]{mic.pdf}}};
+    \node[inner sep=0pt] (russell) at (0.5,0)
+    {\scalebox{0.038}{\includegraphics[width=.25\textwidth]{mic.pdf}}};
+\end{tikzpicture}
+\end{document}

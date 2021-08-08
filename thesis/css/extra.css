@@ -1,0 +1,61 @@
+.column {
+  float: left;
+  width: 25%;
+  padding: 5px;
+}
+
+/* Clear floats after image containers */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.img-hover-zoom {
+  height: 300px; /* Modify this according to your need */
+  overflow: hidden; /* Removing this will break the effects */
+}
+
+/* [2] Transition property for smooth transformation of images */
+.img-hover-zoom img {
+  transition: transform .5s ease;
+}
+
+/* [3] Finally, transforming the image when container gets hovered */
+.img-hover-zoom:hover img {
+  transform: scale(1.5);
+}
+
+
+
+/* Quick-zoom Container */
+.img-hover-zoom--quick-zoom img {
+  transform-origin: 0 0;
+  transition: transform .25s, visibility .25s ease-in;
+}
+
+/* The Transformation */
+.img-hover-zoom--quick-zoom:hover img {
+  transform: scale(2);
+}
+
+.center {
+    margin-left: auto;
+    margin-right: auto;
+    display: block
+    float:left; 
+    margin-top:1em; 
+    margin-bottom:1em; 
+}
+
+video::-webkit-media-controls-panel {
+  width: 90px;
+}
+
+/*Table */
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{font-size:24px;
+  overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg th{font-size:24px;
+  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
